@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+package net.moznion.protoc.plugin.dynamodb;
+
+import "google/protobuf/descriptor.proto";
+
+option java_package = "net.moznion.protoc.plugin.dynamodb";
+option java_outer_classname = "OptionsProto";
+
+extend google.protobuf.FileOptions {
+    Options opt = 50000; // TODO be unique number
+}
+
+message Options {
+    string java_dynamodb_table_name = 1;
+    string java_dynamodb_hash_key = 2;
+    optional bool java_dynamodb_no_strict_mode = 3;
+    optional string java_dynamodb_range_key = 4;
+    repeated string java_dynamodb_ignore_field_names = 5;
+    repeated DynamoDBIndexKey java_dynamodb_gsi_hash_keys = 6;
+    repeated DynamoDBIndexKey java_dynamodb_gsi_range_keys = 7;
+}
+
+message DynamoDBIndexKey {
+    string field_name = 1;
+    repeated string index_names = 2;
+}

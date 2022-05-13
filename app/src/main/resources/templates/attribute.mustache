@@ -1,0 +1,22 @@
+  private {{javaFieldType}} {{javaFieldName}};
+
+  @com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBAttribute
+{{#isHashKey}}
+  @com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBHashKey
+{{/isHashKey}}
+{{#isRangeKey}}
+  @com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBRangeKey
+{{/isRangeKey}}
+{{#gsiHashKeyIndices.length}}
+  @com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBIndexHashKey(globalSecondaryIndexNames = {}) // TODO
+{{/gsiHashKeyIndices.length}}
+{{#gsiRangeKeyIndices.length}}
+  @com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBIndexRangeKey(globalSecondaryIndexNames = {}) // TODO
+{{/gsiRangeKeyIndices.length}}
+  public {{javaFieldType}} get{{javaMethodName}}() {
+    return this.{{javaFieldName}};
+  }
+
+  public void set{{javaMethodName}}(final {{javaFieldType}} v) {
+    this.{{javaFieldName}} = v;
+  }
