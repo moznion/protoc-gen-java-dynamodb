@@ -323,7 +323,7 @@ public class App extends Generator {
 
 	private String buildToOuterClassMethodCode(final String outerClassName, final DynamodbAttributeFields fields) {
 		return "  public " + outerClassName + " to" + outerClassName + "() {\n" +
-			"    new " + outerClassName + ".Builder()." + fields.getFields().stream().map(f -> "set"+getJavaMethodName(f.getFieldName())+"(this."+f.getFieldName()+")").collect(Collectors.joining(".")) + ".build();\n" +
+			"    return new " + outerClassName + ".Builder()." + fields.getFields().stream().map(f -> "set"+getJavaMethodName(f.getFieldName())+"(this."+f.getFieldName()+")").collect(Collectors.joining(".")) + ".build();\n" +
 			"  }\n";
 	}
 
@@ -339,7 +339,7 @@ public class App extends Generator {
 
 	private String buildToDynamodbEntityCode(final String dynamodbInnerClassName, final DynamodbAttributeFields fields) {
 		return "public " + dynamodbInnerClassName + " to" + dynamodbInnerClassName + "() {\n" +
-			"  return new " + dynamodbInnerClassName + "(" + fields.getFields().stream().map(f -> "this." + f.getFieldName()).collect(Collectors.joining(", ")) + ");\n" +
+			"  return new " + dynamodbInnerClassName + "(" + fields.getFields().stream().map(f -> "this.get" + getJavaMethodName(f.getFieldName()) + "()").collect(Collectors.joining(", ")) + ");\n" +
 			"}\n";
 	}
 
