@@ -6,8 +6,8 @@ repositories {
     mavenCentral()
 }
 
-sourceCompatibility = 1.8
-targetCompatibility = 1.8
+sourceCompatibility = 11
+targetCompatibility = 11
 
 dependencies {
     implementation 'com.google.protobuf:protobuf-java:3.20.1'
@@ -16,6 +16,7 @@ dependencies {
     implementation 'org.projectlombok:lombok:1.18.24'
 
     testImplementation 'org.junit.jupiter:junit-jupiter:5.8.2'
+    testImplementation 'com.amazonaws:aws-java-sdk:1.12.220'
 
     compileOnly 'org.projectlombok:lombok:1.18.24'
     annotationProcessor 'org.projectlombok:lombok:1.18.24'
@@ -43,12 +44,29 @@ jar {
 
 def devContainerName = 'protoc-gen-java-dynamodb:latest'
 
-task gen(type:Exec) {
+task gen(type: Exec) {
     workingDir '../'
     commandLine 'bash', '-c', "docker run -v \$(pwd):/protoc-gen-java-dynamodb -w /protoc-gen-java-dynamodb ${devContainerName} protoc --java_out=./app/src/main/java/ ./protos/options.proto"
 }
 
-task buildDockerDevContainer(type:Exec) {
+task buildDockerDevContainer(type: Exec) {
     workingDir '../'
     commandLine 'bash', '-c', "docker build -t ${devContainerName} -f devtools/Dockerfile ."
 }
+
+task buildForTest(type: Exec) {
+    workingDir '../'
+    commandLine './gradlew', 'clean', 'build', '-xtest'
+}
+
+task cleanTestGeneratedFiles(type: Exec) {
+    workingDir '../'
+    commandLine 'bash', '-c', "rm -f ./app/src/test/java/net/moznion/protoc/plugin/dynamodb/*Proto.java"
+}
+
+task genTestProtos(type: Exec, dependsOn: [buildForTest, cleanTestGeneratedFiles]) {
+    workingDir '../'
+    commandLine 'bash', '-c', "docker run -v \$(pwd):/protoc-gen-java-dynamodb -w /protoc-gen-java-dynamodb ${devContainerName} protoc -I ./app/src/test/resources/protos/ --java_out=./app/src/test/java/ --plugin=protoc-gen-java-dynamodb=./devtools/run_plugin.sh --java-dynamodb_out=./app/src/test/java ./app/src/test/resources/protos/basic_test_entity.proto"
+}
+
+tasks.test.dependsOn(genTestProtos)
