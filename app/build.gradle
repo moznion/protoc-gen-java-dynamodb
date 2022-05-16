@@ -83,14 +83,14 @@ task buildForTest() {
 task cleanTestGeneratedFiles(type: Exec) {
     workingDir '../'
     commandLine 'bash', '-c',
-                "rm -f ./app/src/test/java/net/moznion/protoc/plugin/dynamodb/*Proto.java"
+                "rm -f ./app/src/test/java/net/moznion/protoc/plugin/dynamodb/generated/*"
 }
 
 task genTestProtos(type: Exec) {
     dependsOn buildForTest, cleanTestGeneratedFiles
     workingDir '../'
     commandLine 'bash', '-c',
-                "docker run -v \$(pwd):/protoc-gen-java-dynamodb -w /protoc-gen-java-dynamodb ${devContainerName} protoc -I ./app/src/test/resources/protos/ --java_out=./app/src/test/java/ --plugin=protoc-gen-java-dynamodb=./app/build/scripts/app --java-dynamodb_out=./app/src/test/java ./app/src/test/resources/protos/basic_test_entity.proto"
+                "docker run -v \$(pwd):/protoc-gen-java-dynamodb -w /protoc-gen-java-dynamodb ${devContainerName} protoc -I ./app/src/test/resources/protos/ --java_out=./app/src/test/java/ --plugin=protoc-gen-java-dynamodb=./app/build/scripts/app --java-dynamodb_out=./app/src/test/java ./app/src/test/resources/protos/*.proto"
 }
 
 task runDynamodbLocalContainer(type: Exec) {

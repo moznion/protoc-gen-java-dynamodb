@@ -1,10 +1,10 @@
 syntax = "proto3";
 
-package test.datatypes;
+package net.moznion.protoc.plugin.dynamodb.generated;
 
-import "options.proto";
+import "dependencies/options.proto";
 
-option java_package = "net.moznion.protoc.plugin.dynamodb";
+option java_package = "net.moznion.protoc.plugin.dynamodb.generated";
 option java_outer_classname = "BasicTestEntityProto";
 
 option (net.moznion.protoc.plugin.dynamodb.opt).java_dynamodb_table_name = "test-table";
