@@ -4,9 +4,9 @@ import net.moznion.protoc.plugin.dynamodb.generated.AltDynamodbEntityClassNameEn
 import org.junit.jupiter.api.Test;
 
 public class AltDynamodbEntityClassNameEntityTest {
-	@Test
-	void shouldHaveAlternativeDynamodbEntityClassName() {
-		// it sohuld have `DYNAMODB`
-		new AltDynamodbEntityClassNameEntityOuterClass.AltDynamodbEntityClassNameEntity.DYNAMODB();
-	}
+  @Test
+  void shouldHaveAlternativeDynamodbEntityClassName() {
+    // it sohuld have `DYNAMODB`
+    new AltDynamodbEntityClassNameEntityOuterClass.AltDynamodbEntityClassNameEntity.DYNAMODB();
+  }
 }

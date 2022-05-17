@@ -1,5 +1,6 @@
 plugins {
     id 'application'
+    id "com.diffplug.spotless" version "6.6.1"
 }
 
 repositories {
@@ -49,6 +50,14 @@ distTar {
     archiveExtension = 'tar.gz'
 }
 
+spotless {
+  java {
+    googleJavaFormat('1.15.0')
+    removeUnusedImports()
+    target "**/*.java"
+  }
+}
+
 def devContainerName = 'protoc-gen-java-dynamodb:latest'
 
 task buildDockerDevContainer(type: Exec) {
@@ -96,3 +105,9 @@ task runDynamodbLocalContainer(type: Exec) {
 }
 
 tasks.test.dependsOn(genTestProtos)
+
+task fmt {
+  dependsOn spotlessApply
+  finalizedBy gen, genTestProtos
+}
+
