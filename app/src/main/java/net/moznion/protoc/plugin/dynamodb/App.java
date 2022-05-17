@@ -1,7 +1,6 @@
 package net.moznion.protoc.plugin.dynamodb;
 
 import com.google.common.collect.ImmutableMap;
-import com.google.protobuf.ByteString;
 import com.google.protobuf.DescriptorProtos.DescriptorProto;
 import com.google.protobuf.DescriptorProtos.FieldDescriptorProto;
 import com.google.protobuf.DescriptorProtos.FileDescriptorProto;
@@ -58,19 +57,15 @@ public class App extends Generator {
 	@RequiredArgsConstructor(access = AccessLevel.PRIVATE)
 	private static class Options {
 		String tableName;
-		String hashKey;
 		boolean noStrict;
-		String rangeKey;
 		Set<String> ignoreFieldNames;
 		Map<String, List<String>> gsiHashKeys;
 		Map<String, List<String>> gsiRangeKeys;
 
-		static Options from(OptionsProto.Options opts) {
+		static Options from(OptionsProto.FileOptions opts) {
 			return new Options(
 				opts.getJavaDynamodbTableName(),
-				opts.getJavaDynamodbHashKey(),
 				opts.getJavaDynamodbNoStrictMode(),
-				opts.getJavaDynamodbRangeKey(),
 				new HashSet<>(opts.getJavaDynamodbIgnoreFieldNamesList()),
 				opts.getJavaDynamodbGsiHashKeysList()
 					.stream()
@@ -89,9 +84,7 @@ public class App extends Generator {
 
 		boolean shouldGenerate() {
 			return tableName != null
-				&& !tableName.isBlank()
-				&& hashKey != null
-				&& !hashKey.isBlank();
+				&& !tableName.isBlank();
 		}
 
 		boolean isStrictMode() {
@@ -106,7 +99,8 @@ public class App extends Generator {
 		final CodeGeneratorRequest request;
 		try {
 			final ExtensionRegistry registry = ExtensionRegistry.newInstance();
-			registry.add(OptionsProto.opt);
+			registry.add(OptionsProto.fileopt);
+			registry.add(OptionsProto.fieldopt);
 			request = CodeGeneratorRequest.parseFrom(originalRequest.toByteArray(), registry);
 		} catch (InvalidProtocolBufferException e) {
 			throw new RuntimeException(e);
@@ -119,7 +113,7 @@ public class App extends Generator {
 					  .map(file -> {
 						  if (request.getFileToGenerateList().contains(file.getName())) {
 							  final Options opts =
-								  Options.from(file.getOptions().getExtension(OptionsProto.opt));
+								  Options.from(file.getOptions().getExtension(OptionsProto.fileopt));
 							  if (opts.shouldGenerate()) {
 								  return Optional.of(
 									  (Supplier<Stream<File>>) () -> handleProtoFile(file, opts));
@@ -169,11 +163,13 @@ public class App extends Generator {
 										   final Options opt
 		) {
 			final String fieldName = fieldDescriptor.getName();
+			final OptionsProto.FieldOptions fieldOpt =
+				fieldDescriptor.getOptions().getExtension(OptionsProto.fieldopt);
 			return new DynamodbAttributeField(
 				fieldName,
 				fieldDescriptor.getJsonName(),
-				fieldName.equals(opt.hashKey),
-				fieldName.equals(opt.rangeKey),
+				fieldOpt.getJavaDynamodbHashKey(),
+				fieldOpt.getJavaDynamodbRangeKey(),
 				opt.getGsiHashKeys().getOrDefault(fieldName, Collections.emptyList()),
 				opt.getGsiRangeKeys().getOrDefault(fieldName, Collections.emptyList()),
 				fieldDescriptor

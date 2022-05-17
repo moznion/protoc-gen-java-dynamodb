@@ -7,11 +7,10 @@ import "dependencies/options.proto";
 option java_package = "net.moznion.protoc.plugin.dynamodb.generated";
 option java_outer_classname = "AllTypesEntityProto";
 
-option (net.moznion.protoc.plugin.dynamodb.opt).java_dynamodb_table_name = "all-types-entity-table";
-option (net.moznion.protoc.plugin.dynamodb.opt).java_dynamodb_hash_key = "hash_key_str";
+option (net.moznion.protoc.plugin.dynamodb.fileopt).java_dynamodb_table_name = "all-types-entity-table";
 
 message AllTypesEntity {
-  string hash_key_str = 1;
+  string hash_key_str = 1 [(net.moznion.protoc.plugin.dynamodb.fieldopt).java_dynamodb_hash_key = true];
   bool bool_var = 2;
   bytes bytes_var = 3;
   int32 int32_var = 4;

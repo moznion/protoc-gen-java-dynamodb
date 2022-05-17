@@ -19,19 +19,19 @@ public final class RangeKeyEntityProto {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>string hash_key_str = 1;</code>
+     * <code>string hash_key_str = 1 [(.net.moznion.protoc.plugin.dynamodb.fieldopt) = { ... }</code>
      * @return The hashKeyStr.
      */
     java.lang.String getHashKeyStr();
     /**
-     * <code>string hash_key_str = 1;</code>
+     * <code>string hash_key_str = 1 [(.net.moznion.protoc.plugin.dynamodb.fieldopt) = { ... }</code>
      * @return The bytes for hashKeyStr.
      */
     com.google.protobuf.ByteString
         getHashKeyStrBytes();
 
     /**
-     * <code>int64 range_key_int64 = 2;</code>
+     * <code>int64 range_key_int64 = 2 [(.net.moznion.protoc.plugin.dynamodb.fieldopt) = { ... }</code>
      * @return The rangeKeyInt64.
      */
     long getRangeKeyInt64();
@@ -130,7 +130,7 @@ public final class RangeKeyEntityProto {
     public static final int HASH_KEY_STR_FIELD_NUMBER = 1;
     private volatile java.lang.Object hashKeyStr_;
     /**
-     * <code>string hash_key_str = 1;</code>
+     * <code>string hash_key_str = 1 [(.net.moznion.protoc.plugin.dynamodb.fieldopt) = { ... }</code>
      * @return The hashKeyStr.
      */
     @java.lang.Override
@@ -147,7 +147,7 @@ public final class RangeKeyEntityProto {
       }
     }
     /**
-     * <code>string hash_key_str = 1;</code>
+     * <code>string hash_key_str = 1 [(.net.moznion.protoc.plugin.dynamodb.fieldopt) = { ... }</code>
      * @return The bytes for hashKeyStr.
      */
     @java.lang.Override
@@ -168,7 +168,7 @@ public final class RangeKeyEntityProto {
     public static final int RANGE_KEY_INT64_FIELD_NUMBER = 2;
     private long rangeKeyInt64_;
     /**
-     * <code>int64 range_key_int64 = 2;</code>
+     * <code>int64 range_key_int64 = 2 [(.net.moznion.protoc.plugin.dynamodb.fieldopt) = { ... }</code>
      * @return The rangeKeyInt64.
      */
     @java.lang.Override
@@ -498,7 +498,7 @@ public final class RangeKeyEntityProto {
 
       private java.lang.Object hashKeyStr_ = "";
       /**
-       * <code>string hash_key_str = 1;</code>
+       * <code>string hash_key_str = 1 [(.net.moznion.protoc.plugin.dynamodb.fieldopt) = { ... }</code>
        * @return The hashKeyStr.
        */
       public java.lang.String getHashKeyStr() {
@@ -514,7 +514,7 @@ public final class RangeKeyEntityProto {
         }
       }
       /**
-       * <code>string hash_key_str = 1;</code>
+       * <code>string hash_key_str = 1 [(.net.moznion.protoc.plugin.dynamodb.fieldopt) = { ... }</code>
        * @return The bytes for hashKeyStr.
        */
       public com.google.protobuf.ByteString
@@ -531,7 +531,7 @@ public final class RangeKeyEntityProto {
         }
       }
       /**
-       * <code>string hash_key_str = 1;</code>
+       * <code>string hash_key_str = 1 [(.net.moznion.protoc.plugin.dynamodb.fieldopt) = { ... }</code>
        * @param value The hashKeyStr to set.
        * @return This builder for chaining.
        */
@@ -546,7 +546,7 @@ public final class RangeKeyEntityProto {
         return this;
       }
       /**
-       * <code>string hash_key_str = 1;</code>
+       * <code>string hash_key_str = 1 [(.net.moznion.protoc.plugin.dynamodb.fieldopt) = { ... }</code>
        * @return This builder for chaining.
        */
       public Builder clearHashKeyStr() {
@@ -556,7 +556,7 @@ public final class RangeKeyEntityProto {
         return this;
       }
       /**
-       * <code>string hash_key_str = 1;</code>
+       * <code>string hash_key_str = 1 [(.net.moznion.protoc.plugin.dynamodb.fieldopt) = { ... }</code>
        * @param value The bytes for hashKeyStr to set.
        * @return This builder for chaining.
        */
@@ -574,7 +574,7 @@ public final class RangeKeyEntityProto {
 
       private long rangeKeyInt64_ ;
       /**
-       * <code>int64 range_key_int64 = 2;</code>
+       * <code>int64 range_key_int64 = 2 [(.net.moznion.protoc.plugin.dynamodb.fieldopt) = { ... }</code>
        * @return The rangeKeyInt64.
        */
       @java.lang.Override
@@ -582,7 +582,7 @@ public final class RangeKeyEntityProto {
         return rangeKeyInt64_;
       }
       /**
-       * <code>int64 range_key_int64 = 2;</code>
+       * <code>int64 range_key_int64 = 2 [(.net.moznion.protoc.plugin.dynamodb.fieldopt) = { ... }</code>
        * @param value The rangeKeyInt64 to set.
        * @return This builder for chaining.
        */
@@ -593,7 +593,7 @@ public final class RangeKeyEntityProto {
         return this;
       }
       /**
-       * <code>int64 range_key_int64 = 2;</code>
+       * <code>int64 range_key_int64 = 2 [(.net.moznion.protoc.plugin.dynamodb.fieldopt) = { ... }</code>
        * @return This builder for chaining.
        */
       public Builder clearRangeKeyInt64() {
@@ -714,12 +714,12 @@ public final class RangeKeyEntityProto {
     java.lang.String[] descriptorData = {
       "\n\026range_key_entity.proto\022,net.moznion.pr" +
       "otoc.plugin.dynamodb.generated\032\032dependen" +
-      "cies/options.proto\"?\n\016RangeKeyEntity\022\024\n\014" +
-      "hash_key_str\030\001 \001(\t\022\027\n\017range_key_int64\030\002 " +
-      "\001(\003B\206\001\n,net.moznion.protoc.plugin.dynamo" +
-      "db.generatedB\023RangeKeyEntityProto\202\265\030\030\n\026r" +
-      "ange-key-entity-table\202\265\030\016\022\014hash_key_str\202" +
-      "\265\030\021\"\017range_key_int64b\006proto3"
+      "cies/options.proto\"O\n\016RangeKeyEntity\022\034\n\014" +
+      "hash_key_str\030\001 \001(\tB\006\212\265\030\002\010\001\022\037\n\017range_key_" +
+      "int64\030\002 \001(\003B\006\212\265\030\002\020\001B_\n,net.moznion.proto" +
+      "c.plugin.dynamodb.generatedB\023RangeKeyEnt" +
+      "ityProto\202\265\030\030\n\026range-key-entity-tableb\006pr" +
+      "oto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -734,7 +734,8 @@ public final class RangeKeyEntityProto {
         new java.lang.String[] { "HashKeyStr", "RangeKeyInt64", });
     com.google.protobuf.ExtensionRegistry registry =
         com.google.protobuf.ExtensionRegistry.newInstance();
-    registry.add(net.moznion.protoc.plugin.dynamodb.OptionsProto.opt);
+    registry.add(net.moznion.protoc.plugin.dynamodb.OptionsProto.fieldopt);
+    registry.add(net.moznion.protoc.plugin.dynamodb.OptionsProto.fileopt);
     com.google.protobuf.Descriptors.FileDescriptor
         .internalUpdateFileDescriptor(descriptor, registry);
     net.moznion.protoc.plugin.dynamodb.OptionsProto.getDescriptor();

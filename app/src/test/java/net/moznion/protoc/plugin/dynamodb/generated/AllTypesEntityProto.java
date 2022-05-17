@@ -19,12 +19,12 @@ public final class AllTypesEntityProto {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>string hash_key_str = 1;</code>
+     * <code>string hash_key_str = 1 [(.net.moznion.protoc.plugin.dynamodb.fieldopt) = { ... }</code>
      * @return The hashKeyStr.
      */
     java.lang.String getHashKeyStr();
     /**
-     * <code>string hash_key_str = 1;</code>
+     * <code>string hash_key_str = 1 [(.net.moznion.protoc.plugin.dynamodb.fieldopt) = { ... }</code>
      * @return The bytes for hashKeyStr.
      */
     com.google.protobuf.ByteString
@@ -541,7 +541,7 @@ public final class AllTypesEntityProto {
     public static final int HASH_KEY_STR_FIELD_NUMBER = 1;
     private volatile java.lang.Object hashKeyStr_;
     /**
-     * <code>string hash_key_str = 1;</code>
+     * <code>string hash_key_str = 1 [(.net.moznion.protoc.plugin.dynamodb.fieldopt) = { ... }</code>
      * @return The hashKeyStr.
      */
     @java.lang.Override
@@ -558,7 +558,7 @@ public final class AllTypesEntityProto {
       }
     }
     /**
-     * <code>string hash_key_str = 1;</code>
+     * <code>string hash_key_str = 1 [(.net.moznion.protoc.plugin.dynamodb.fieldopt) = { ... }</code>
      * @return The bytes for hashKeyStr.
      */
     @java.lang.Override
@@ -1678,7 +1678,7 @@ public final class AllTypesEntityProto {
 
       private java.lang.Object hashKeyStr_ = "";
       /**
-       * <code>string hash_key_str = 1;</code>
+       * <code>string hash_key_str = 1 [(.net.moznion.protoc.plugin.dynamodb.fieldopt) = { ... }</code>
        * @return The hashKeyStr.
        */
       public java.lang.String getHashKeyStr() {
@@ -1694,7 +1694,7 @@ public final class AllTypesEntityProto {
         }
       }
       /**
-       * <code>string hash_key_str = 1;</code>
+       * <code>string hash_key_str = 1 [(.net.moznion.protoc.plugin.dynamodb.fieldopt) = { ... }</code>
        * @return The bytes for hashKeyStr.
        */
       public com.google.protobuf.ByteString
@@ -1711,7 +1711,7 @@ public final class AllTypesEntityProto {
         }
       }
       /**
-       * <code>string hash_key_str = 1;</code>
+       * <code>string hash_key_str = 1 [(.net.moznion.protoc.plugin.dynamodb.fieldopt) = { ... }</code>
        * @param value The hashKeyStr to set.
        * @return This builder for chaining.
        */
@@ -1726,7 +1726,7 @@ public final class AllTypesEntityProto {
         return this;
       }
       /**
-       * <code>string hash_key_str = 1;</code>
+       * <code>string hash_key_str = 1 [(.net.moznion.protoc.plugin.dynamodb.fieldopt) = { ... }</code>
        * @return This builder for chaining.
        */
       public Builder clearHashKeyStr() {
@@ -1736,7 +1736,7 @@ public final class AllTypesEntityProto {
         return this;
       }
       /**
-       * <code>string hash_key_str = 1;</code>
+       * <code>string hash_key_str = 1 [(.net.moznion.protoc.plugin.dynamodb.fieldopt) = { ... }</code>
        * @param value The bytes for hashKeyStr to set.
        * @return This builder for chaining.
        */
@@ -2956,19 +2956,19 @@ public final class AllTypesEntityProto {
     java.lang.String[] descriptorData = {
       "\n\026all_types_entity.proto\022,net.moznion.pr" +
       "otoc.plugin.dynamodb.generated\032\032dependen" +
-      "cies/options.proto\"\340\002\n\016AllTypesEntity\022\024\n" +
-      "\014hash_key_str\030\001 \001(\t\022\020\n\010bool_var\030\002 \001(\010\022\021\n" +
-      "\tbytes_var\030\003 \001(\014\022\021\n\tint32_var\030\004 \001(\005\022\021\n\ti" +
-      "nt64_var\030\005 \001(\003\022\022\n\nuint32_var\030\006 \001(\r\022\022\n\nui" +
-      "nt64_var\030\007 \001(\004\022\021\n\tfloat_var\030\010 \001(\002\022\022\n\ndou" +
-      "ble_var\030\t \001(\001\022\020\n\010str_list\030\n \003(\t\022\021\n\tbool_" +
-      "list\030\013 \003(\010\022\022\n\nint32_list\030\014 \003(\005\022\022\n\nint64_" +
-      "list\030\r \003(\003\022\023\n\013uint32_list\030\016 \003(\r\022\023\n\013uint6" +
-      "4_list\030\017 \003(\004\022\022\n\nfloat_list\030\020 \003(\002\022\023\n\013doub" +
-      "le_list\030\021 \003(\001Bq\n,net.moznion.protoc.plug" +
-      "in.dynamodb.generatedB\023AllTypesEntityPro" +
-      "to\202\265\030\030\n\026all-types-entity-table\202\265\030\016\022\014hash" +
-      "_key_strb\006proto3"
+      "cies/options.proto\"\350\002\n\016AllTypesEntity\022\034\n" +
+      "\014hash_key_str\030\001 \001(\tB\006\212\265\030\002\010\001\022\020\n\010bool_var\030" +
+      "\002 \001(\010\022\021\n\tbytes_var\030\003 \001(\014\022\021\n\tint32_var\030\004 " +
+      "\001(\005\022\021\n\tint64_var\030\005 \001(\003\022\022\n\nuint32_var\030\006 \001" +
+      "(\r\022\022\n\nuint64_var\030\007 \001(\004\022\021\n\tfloat_var\030\010 \001(" +
+      "\002\022\022\n\ndouble_var\030\t \001(\001\022\020\n\010str_list\030\n \003(\t\022" +
+      "\021\n\tbool_list\030\013 \003(\010\022\022\n\nint32_list\030\014 \003(\005\022\022" +
+      "\n\nint64_list\030\r \003(\003\022\023\n\013uint32_list\030\016 \003(\r\022" +
+      "\023\n\013uint64_list\030\017 \003(\004\022\022\n\nfloat_list\030\020 \003(\002" +
+      "\022\023\n\013double_list\030\021 \003(\001B_\n,net.moznion.pro" +
+      "toc.plugin.dynamodb.generatedB\023AllTypesE" +
+      "ntityProto\202\265\030\030\n\026all-types-entity-tableb\006" +
+      "proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -2983,7 +2983,8 @@ public final class AllTypesEntityProto {
         new java.lang.String[] { "HashKeyStr", "BoolVar", "BytesVar", "Int32Var", "Int64Var", "Uint32Var", "Uint64Var", "FloatVar", "DoubleVar", "StrList", "BoolList", "Int32List", "Int64List", "Uint32List", "Uint64List", "FloatList", "DoubleList", });
     com.google.protobuf.ExtensionRegistry registry =
         com.google.protobuf.ExtensionRegistry.newInstance();
-    registry.add(net.moznion.protoc.plugin.dynamodb.OptionsProto.opt);
+    registry.add(net.moznion.protoc.plugin.dynamodb.OptionsProto.fieldopt);
+    registry.add(net.moznion.protoc.plugin.dynamodb.OptionsProto.fileopt);
     com.google.protobuf.Descriptors.FileDescriptor
         .internalUpdateFileDescriptor(descriptor, registry);
     net.moznion.protoc.plugin.dynamodb.OptionsProto.getDescriptor();
