@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package net.moznion.protoc.plugin.dynamodb.generated;
+
+import "dependencies/options.proto";
+
+option java_package = "net.moznion.protoc.plugin.dynamodb.generated";
+option java_outer_classname = "GsiEntityProto";
+
+option (net.moznion.protoc.plugin.dynamodb.fileopt).java_dynamodb_table_name = "gsi-entity-table";
+
+message GsiEntity {
+  string hash_key_str = 1 [(net.moznion.protoc.plugin.dynamodb.fieldopt).java_dynamodb_hash_key = true, (net.moznion.protoc.plugin.dynamodb.fieldopt).java_dynamodb_hash_key_gsi_names = "gsi0"];
+  string foo_str = 2 [(net.moznion.protoc.plugin.dynamodb.fieldopt).java_dynamodb_hash_key_gsi_names = "gsi1", (net.moznion.protoc.plugin.dynamodb.fieldopt).java_dynamodb_hash_key_gsi_names = "gsi2"];
+  string bar_str = 3 [(net.moznion.protoc.plugin.dynamodb.fieldopt).java_dynamodb_range_key_gsi_names = "gsi0", (net.moznion.protoc.plugin.dynamodb.fieldopt).java_dynamodb_range_key_gsi_names = "gsi1"];
+  string buz_str = 4 [(net.moznion.protoc.plugin.dynamodb.fieldopt).java_dynamodb_range_key_gsi_names = "gsi2"];
+  string qux_str = 5 [(net.moznion.protoc.plugin.dynamodb.fieldopt).java_dynamodb_hash_key_gsi_names = "gsi3"];
+}

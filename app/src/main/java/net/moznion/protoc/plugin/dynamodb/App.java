@@ -17,12 +17,11 @@ import com.salesforce.jprotoc.ProtoTypeMap;
 import com.salesforce.jprotoc.ProtocPlugin;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 import java.util.Optional;
-import java.util.Set;
+import java.util.StringJoiner;
 import java.util.function.Supplier;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -58,25 +57,11 @@ public class App extends Generator {
 	private static class Options {
 		String tableName;
 		boolean noStrict;
-		Map<String, List<String>> gsiHashKeys;
-		Map<String, List<String>> gsiRangeKeys;
 
 		static Options from(OptionsProto.FileOptions opts) {
 			return new Options(
 				opts.getJavaDynamodbTableName(),
-				opts.getJavaDynamodbNoStrictMode(),
-				opts.getJavaDynamodbGsiHashKeysList()
-					.stream()
-					.collect(Collectors.toMap(
-						OptionsProto.DynamoDBIndexKey::getFieldName,
-						OptionsProto.DynamoDBIndexKey::getIndexNamesList
-					)),
-				opts.getJavaDynamodbGsiRangeKeysList()
-					.stream()
-					.collect(Collectors.toMap(
-						OptionsProto.DynamoDBIndexKey::getFieldName,
-						OptionsProto.DynamoDBIndexKey::getIndexNamesList
-					))
+				opts.getJavaDynamodbNoStrictMode()
 			);
 		}
 
@@ -168,8 +153,8 @@ public class App extends Generator {
 				fieldDescriptor.getJsonName(),
 				fieldOpt.getJavaDynamodbHashKey(),
 				fieldOpt.getJavaDynamodbRangeKey(),
-				opt.getGsiHashKeys().getOrDefault(fieldName, Collections.emptyList()),
-				opt.getGsiRangeKeys().getOrDefault(fieldName, Collections.emptyList()),
+				fieldOpt.getJavaDynamodbHashKeyGsiNamesList(),
+				fieldOpt.getJavaDynamodbRangeKeyGsiNamesList(),
 				fieldDescriptor
 			);
 		}
@@ -286,8 +271,8 @@ public class App extends Generator {
 										)
 										.put("isHashKey", field.isHashKey())
 										.put("isRangeKey", field.isRangeKey())
-										.put("gsiHashKeyIndices", field.getGsiHashKeyIndices())
-										.put("gsiRangeKeyIndices", field.getGsiRangeKeyIndices())
+										.put("gsiHashKeyIndices", field.getGsiHashKeyIndices().stream().map(s -> "\"" + s + "\"").collect(Collectors.joining(", ")))
+										.put("gsiRangeKeyIndices", field.getGsiRangeKeyIndices().stream().map(s -> "\"" + s + "\"").collect(Collectors.joining(", ")))
 										.build();
 		return Optional.of(applyTemplate(templatePath("attribute.mustache"), context));
 	}

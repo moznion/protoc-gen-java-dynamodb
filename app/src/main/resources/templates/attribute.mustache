@@ -7,12 +7,12 @@
 {{#isRangeKey}}
   @com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBRangeKey
 {{/isRangeKey}}
-{{#gsiHashKeyIndices.length}}
-  @com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBIndexHashKey(globalSecondaryIndexNames = {}) // TODO
-{{/gsiHashKeyIndices.length}}
-{{#gsiRangeKeyIndices.length}}
-  @com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBIndexRangeKey(globalSecondaryIndexNames = {}) // TODO
-{{/gsiRangeKeyIndices.length}}
+{{#gsiHashKeyIndices}}
+  @com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBIndexHashKey(globalSecondaryIndexNames = { {{{gsiHashKeyIndices}}} })
+{{/gsiHashKeyIndices}}
+{{#gsiRangeKeyIndices}}
+  @com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBIndexRangeKey(globalSecondaryIndexNames = { {{{gsiRangeKeyIndices}}} })
+{{/gsiRangeKeyIndices}}
   public {{{javaFieldType}}} get{{javaMethodName}}() {
     return this.{{javaFieldName}};
   }
