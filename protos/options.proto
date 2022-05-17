@@ -13,7 +13,6 @@ extend google.protobuf.FileOptions {
 
 message FileOptions {
     string java_dynamodb_table_name = 1;
-    optional bool java_dynamodb_no_strict_mode = 2;
 }
 
 extend google.protobuf.FieldOptions {

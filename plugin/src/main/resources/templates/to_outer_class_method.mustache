@@ -1,0 +1,7 @@
+  public {{outerClassName}} to{{outerClassName}}() {
+    return new {{outerClassName}}.Builder()
+{{#decorators}}
+      .{{accessor}}({{#isBytes}}com.google.protobuf.ByteString.copyFrom({{/isBytes}}this.{{fieldName}}{{#isBytes}}){{/isBytes}})
+{{/decorators}}
+      .build();
+  }

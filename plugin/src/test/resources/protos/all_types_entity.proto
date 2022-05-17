@@ -1,0 +1,31 @@
+syntax = "proto3";
+
+package net.moznion.protoc.plugin.dynamodb.generated;
+
+import "dependencies/options.proto";
+
+option java_package = "net.moznion.protoc.plugin.dynamodb.generated";
+option java_outer_classname = "AllTypesEntityProto";
+option java_multiple_files = true;
+
+option (net.moznion.protoc.plugin.dynamodb.fileopt).java_dynamodb_table_name = "all-types-entity-table";
+
+message AllTypesEntity {
+  string hash_key_str = 1 [(net.moznion.protoc.plugin.dynamodb.fieldopt).java_dynamodb_hash_key = true];
+  bool bool_var = 2;
+  bytes bytes_var = 3;
+  int32 int32_var = 4;
+  int64 int64_var = 5;
+  uint32 uint32_var = 6;
+  uint64 uint64_var = 7;
+  float float_var = 8;
+  double double_var = 9;
+  repeated string str_list = 10;
+  repeated bool bool_list = 11;
+  repeated int32 int32_list = 12;
+  repeated int64 int64_list = 13;
+  repeated uint32 uint32_list = 14;
+  repeated uint64 uint64_list = 15;
+  repeated float float_list = 16;
+  repeated double double_list = 17;
+}
