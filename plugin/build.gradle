@@ -104,8 +104,6 @@ task runDynamodbLocalContainer(type: Exec) {
     commandLine 'docker', 'run', '--rm', '-d', '-p', '38000:8000', 'amazon/dynamodb-local:latest'
 }
 
-tasks.test.dependsOn(genTestProtos)
-
 task fmt {
   dependsOn spotlessApply
   finalizedBy gen, genTestProtos
