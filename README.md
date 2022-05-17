@@ -26,7 +26,7 @@ message ExampleEntity {
 And when it gives this plugin the avobe protobuf schema:
 
 ```
-$ protoc -I . --java_out=./out/src/main/java/ --plugin=protoc-gen-java-dynamodb=./plugin/build/scripts/plugin --java-dynamodb_out=./out/src/main/java ./example.proto
+$ protoc -I . --java_out=./out/src/main/java/ --plugin=protoc-gen-java-dynamodb=./protoc-gen-java-dynamodb/build/scripts/protoc-gen-java-dynamodb --java-dynamodb_out=./out/src/main/java ./example.proto
 ```
 
 Then the plugin generates the following code in `ExampleEntityProto` class:

@@ -1,2 +1,2 @@
 rootProject.name = 'protoc-gen-java-dynamodb'
-include('plugin')
+include('protoc-gen-java-dynamodb')

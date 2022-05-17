@@ -68,7 +68,7 @@ task buildDockerDevContainer(type: Exec) {
 task gen(type: Exec) {
     workingDir '../'
     commandLine 'bash', '-c',
-                "docker run -v \$(pwd):/protoc-gen-java-dynamodb -w /protoc-gen-java-dynamodb ${devContainerName} protoc --java_out=./plugin/src/main/java/ ./protos/options.proto"
+                "docker run -v \$(pwd):/protoc-gen-java-dynamodb -w /protoc-gen-java-dynamodb ${devContainerName} protoc --java_out=./protoc-gen-java-dynamodb/src/main/java/ ./protos/options.proto"
 }
 
 task copyDepsToLib(type: Copy) {
@@ -90,14 +90,14 @@ task buildForTest() {
 task cleanTestGeneratedFiles(type: Exec) {
     workingDir '../'
     commandLine 'bash', '-c',
-                "rm -f ./plugin/src/test/java/net/moznion/protoc/plugin/dynamodb/generated/*"
+                "rm -f ./protoc-gen-java-dynamodb/src/test/java/net/moznion/protoc/plugin/dynamodb/generated/*"
 }
 
 task genTestProtos(type: Exec) {
     dependsOn buildForTest, cleanTestGeneratedFiles
     workingDir '../'
     commandLine 'bash', '-c',
-                "docker run -v \$(pwd):/protoc-gen-java-dynamodb -w /protoc-gen-java-dynamodb ${devContainerName} protoc -I ./plugin/src/test/resources/protos/ --java_out=./plugin/src/test/java/ --plugin=protoc-gen-java-dynamodb=./plugin/build/scripts/plugin --java-dynamodb_out=./plugin/src/test/java ./plugin/src/test/resources/protos/*.proto"
+                "docker run -v \$(pwd):/protoc-gen-java-dynamodb -w /protoc-gen-java-dynamodb ${devContainerName} protoc -I ./protoc-gen-java-dynamodb/src/test/resources/protos/ --java_out=./protoc-gen-java-dynamodb/src/test/java/ --plugin=protoc-gen-java-dynamodb=./protoc-gen-java-dynamodb/build/scripts/protoc-gen-java-dynamodb --java-dynamodb_out=./protoc-gen-java-dynamodb/src/test/java ./protoc-gen-java-dynamodb/src/test/resources/protos/*.proto"
 }
 
 task runDynamodbLocalContainer(type: Exec) {
