@@ -11,5 +11,9 @@ jobs:
           distribution: 'adopt'
           java-version: '11'
           cache: 'gradle'
+      - uses: rrainn/dynamodb-action@v2.0.1
+        with:
+          port: 38000
+          cors: '*'
       - run: ./gradlew clean test --no-daemon
 
