@@ -1,4 +1,4 @@
-  private {{javaFieldType}} {{javaFieldName}};
+  private {{{javaFieldType}}} {{javaFieldName}};
 
   @com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBAttribute
 {{#isHashKey}}
@@ -13,10 +13,10 @@
 {{#gsiRangeKeyIndices.length}}
   @com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBIndexRangeKey(globalSecondaryIndexNames = {}) // TODO
 {{/gsiRangeKeyIndices.length}}
-  public {{javaFieldType}} get{{javaMethodName}}() {
+  public {{{javaFieldType}}} get{{javaMethodName}}() {
     return this.{{javaFieldName}};
   }
 
-  public void set{{javaMethodName}}(final {{javaFieldType}} v) {
+  public void set{{javaMethodName}}(final {{{javaFieldType}}} v) {
     this.{{javaFieldName}} = v;
   }

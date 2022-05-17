@@ -36,6 +36,7 @@ public class App extends Generator {
 	private static final String JAVA_EXTENSION = ".java";
 	private static final String DIR_SEPARATOR = "/";
 	private static final String CLASS_SCOPE = "class_scope:";
+	private static final String BYTES_ARRAY_TYPE = "byte[]";
 	private static final Map<JavaType, String> PRIMITIVE_CLASSES =
 		ImmutableMap.<JavaType, String>builder()
 					.put(JavaType.INT, Integer.class.getSimpleName())
@@ -44,14 +45,8 @@ public class App extends Generator {
 					.put(JavaType.DOUBLE, Double.class.getSimpleName())
 					.put(JavaType.BOOLEAN, Boolean.class.getSimpleName())
 					.put(JavaType.STRING, String.class.getSimpleName())
-					.put(JavaType.BYTE_STRING, ByteString.class.getName())
+					.put(JavaType.BYTE_STRING, BYTES_ARRAY_TYPE)
 					.build();
-	//private static final Map<String, String> PRIMITIVE_OPTIONALS =
-	//	ImmutableMap.<String, String>builder()
-	//				.put(Integer.class.getSimpleName(), OptionalInt.class.getName())
-	//				.put(Long.class.getSimpleName(), OptionalLong.class.getName())
-	//				.put(Double.class.getSimpleName(), OptionalDouble.class.getName())
-	//				.build();
 
 	public static void main(String[] args) {
 		ProtocPlugin.generate(new App());
@@ -195,6 +190,10 @@ public class App extends Generator {
 
 			return this;
 		}
+
+		boolean isRepeated() {
+			return descriptor.getLabel() == FieldDescriptorProto.Label.LABEL_REPEATED;
+		}
 	}
 
 	@Value
@@ -264,7 +263,7 @@ public class App extends Generator {
 												Optional::of
 											))
 											.filter(value -> !value.isEmpty()).orElse("");
-		final String dynamodbInnerClassName = outerClassName + "DynamoDBEntity"; // TODO replacable
+		final String dynamodbInnerClassName = "DynamoDBEntity";
 
 		final String dynamoDBEntityInnerClassCode = buildDynamoDBEntityInnerClassCode(
 			opts.tableName,
@@ -283,9 +282,7 @@ public class App extends Generator {
 	}
 
 	private Optional<String> buildAttributesCode(final DynamodbAttributeField field) {
-		// hasFieldPresence(fieldDescriptor) // TODO
-
-		String javaTypeName = getJavaTypeName(field.getDescriptor());
+		String javaTypeName = getJavaTypeName(field);
 		Map<?, ?> context = ImmutableMap.builder()
 										.put("javaFieldType", javaTypeName)
 										.put("javaFieldName", field.getFieldName())
@@ -312,7 +309,7 @@ public class App extends Generator {
 		for (final DynamodbAttributeField field : fields.getFields()) {
 			final String fieldName = field.getFieldName();
 
-			final String javaTypeName = getJavaTypeName(field.getDescriptor());
+			final String javaTypeName = getJavaTypeName(field);
 			arguments.add("final " + javaTypeName + " " + fieldName);
 
 			bindCode.append("    this.").append(fieldName).append(" = ").append(fieldName).append(";\n");
@@ -323,7 +320,8 @@ public class App extends Generator {
 
 	private String buildToOuterClassMethodCode(final String outerClassName, final DynamodbAttributeFields fields) {
 		return "  public " + outerClassName + " to" + outerClassName + "() {\n" +
-			"    return new " + outerClassName + ".Builder()." + fields.getFields().stream().map(f -> "set"+getJavaMethodName(f.getFieldName())+"(this."+f.getFieldName()+")").collect(Collectors.joining(".")) + ".build();\n" +
+			"    return new " + outerClassName + ".Builder()." + fields.getFields().stream().map(f -> (f.isRepeated() ? "addAll" : "set") +
+			getJavaMethodName(f.getFieldName()) + "(" + (getJavaTypeName(f).equals(BYTES_ARRAY_TYPE) ? "com.google.protobuf.ByteString.copyFrom(" : "") + "this." + f.getFieldName() + (getJavaTypeName(f).equals(BYTES_ARRAY_TYPE) ? ")" : "") + ")").collect(Collectors.joining(".")) + ".build();\n" +
 			"  }\n";
 	}
 
@@ -339,7 +337,7 @@ public class App extends Generator {
 
 	private String buildToDynamodbEntityCode(final String dynamodbInnerClassName, final DynamodbAttributeFields fields) {
 		return "public " + dynamodbInnerClassName + " to" + dynamodbInnerClassName + "() {\n" +
-			"  return new " + dynamodbInnerClassName + "(" + fields.getFields().stream().map(f -> "this.get" + getJavaMethodName(f.getFieldName()) + "()").collect(Collectors.joining(", ")) + ");\n" +
+			"  return new " + dynamodbInnerClassName + "(" + fields.getFields().stream().map(f -> "this.get" + getJavaMethodName(f.getFieldName()) + (f.isRepeated() ? "List" : "") + "()" + (getJavaTypeName(f).equals(BYTES_ARRAY_TYPE) ? ".toByteArray()" : "")).collect(Collectors.joining(", ")) + ");\n" +
 			"}\n";
 	}
 
@@ -371,18 +369,22 @@ public class App extends Generator {
 		return fieldName.substring(0, 1).toUpperCase(Locale.ROOT) + fieldName.substring(1);
 	}
 
-	private String getJavaTypeName(FieldDescriptorProto fieldDescriptor) {
-		String protoTypeName = fieldDescriptor.getTypeName();
-		if (protoTypeName.isEmpty()) {
-			return Optional.of(fieldDescriptor.getType())
-						   .map(FieldDescriptor.Type::valueOf)
-						   .map(FieldDescriptor.Type::getJavaType)
-						   .map(PRIMITIVE_CLASSES::get)
-						   .orElseThrow(() -> new IllegalArgumentException(
-							   "Failed to find java type for field:\n" + fieldDescriptor));
-		}
-		return Optional.ofNullable(protoTypeMap.toJavaTypeName(protoTypeName))
+	private String getJavaTypeName(DynamodbAttributeField field) {
+		final FieldDescriptorProto fieldDescriptorProto = field.getDescriptor();
+		return Optional.of(fieldDescriptorProto.getType())
+					   .map(FieldDescriptor.Type::valueOf)
+					   .map(FieldDescriptor.Type::getJavaType)
+					   .map(PRIMITIVE_CLASSES::get)
+					   .map(t -> {
+						   if (field.isRepeated()) {
+							   if (t.equals(BYTES_ARRAY_TYPE)) {
+								   throw new IllegalArgumentException("`repeated bytes` is prohibited type");
+							   }
+							   return "java.util.List<" + t + ">";
+						   }
+						   return t;
+					   })
 					   .orElseThrow(() -> new IllegalArgumentException(
-						   "Failed to find java type for prototype '" + protoTypeName + "'"));
+						   "Failed to find java type for field:\n" + fieldDescriptorProto));
 	}
 }
