@@ -24,6 +24,7 @@ message FieldOptions {
     bool java_dynamodb_hash_key = 1;
     bool java_dynamodb_range_key = 2;
     bool java_dynamodb_ignore = 3;
-    repeated string java_dynamodb_hash_key_gsi_names = 4;
-    repeated string java_dynamodb_range_key_gsi_names = 5;
+    string java_dynamodb_alias = 4;
+    repeated string java_dynamodb_hash_key_gsi_names = 5;
+    repeated string java_dynamodb_range_key_gsi_names = 6;
 }

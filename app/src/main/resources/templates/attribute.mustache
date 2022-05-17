@@ -1,11 +1,11 @@
   private {{{javaFieldType}}} {{javaFieldName}};
 
-  @com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBAttribute
+  @com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBAttribute({{#fieldAliasName}}attributeName = "{{fieldAliasName}}"{{/fieldAliasName}})
 {{#isHashKey}}
-  @com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBHashKey
+  @com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBHashKey({{#fieldAliasName}}attributeName = "{{fieldAliasName}}"{{/fieldAliasName}})
 {{/isHashKey}}
 {{#isRangeKey}}
-  @com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBRangeKey
+  @com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBRangeKey({{#fieldAliasName}}attributeName = "{{fieldAliasName}}"{{/fieldAliasName}})
 {{/isRangeKey}}
 {{#gsiHashKeyIndices}}
   @com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBIndexHashKey(globalSecondaryIndexNames = { {{{gsiHashKeyIndices}}} })

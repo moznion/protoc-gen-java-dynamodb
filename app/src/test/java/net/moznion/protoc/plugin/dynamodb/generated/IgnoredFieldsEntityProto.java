@@ -772,8 +772,8 @@ public final class IgnoredFieldsEntityProto {
     public static class DynamoDBEntity {
       private String hashKeyStr;
     
-      @com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBAttribute
-      @com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBHashKey
+      @com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBAttribute()
+      @com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBHashKey()
       public String getHashKeyStr() {
         return this.hashKeyStr;
       }

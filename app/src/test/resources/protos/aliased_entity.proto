@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+package net.moznion.protoc.plugin.dynamodb.generated;
+
+import "dependencies/options.proto";
+
+option java_package = "net.moznion.protoc.plugin.dynamodb.generated";
+option java_outer_classname = "AliasedEntityProto";
+
+option (net.moznion.protoc.plugin.dynamodb.fileopt).java_dynamodb_table_name = "aliased-entity-table";
+
+message AliasedEntity {
+  string hash_key_str = 1 [(net.moznion.protoc.plugin.dynamodb.fieldopt).java_dynamodb_hash_key = true, (net.moznion.protoc.plugin.dynamodb.fieldopt).java_dynamodb_alias = "hash-key"];
+  int64 int64_var = 2 [(net.moznion.protoc.plugin.dynamodb.fieldopt).java_dynamodb_alias = "int64-var"];
+}

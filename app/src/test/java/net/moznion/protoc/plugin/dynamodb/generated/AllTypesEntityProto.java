@@ -2685,8 +2685,8 @@ public final class AllTypesEntityProto {
     public static class DynamoDBEntity {
       private String hashKeyStr;
     
-      @com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBAttribute
-      @com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBHashKey
+      @com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBAttribute()
+      @com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBHashKey()
       public String getHashKeyStr() {
         return this.hashKeyStr;
       }
@@ -2697,7 +2697,7 @@ public final class AllTypesEntityProto {
     
       private Boolean boolVar;
     
-      @com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBAttribute
+      @com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBAttribute()
       public Boolean getBoolVar() {
         return this.boolVar;
       }
@@ -2708,7 +2708,7 @@ public final class AllTypesEntityProto {
     
       private byte[] bytesVar;
     
-      @com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBAttribute
+      @com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBAttribute()
       public byte[] getBytesVar() {
         return this.bytesVar;
       }
@@ -2719,7 +2719,7 @@ public final class AllTypesEntityProto {
     
       private Integer int32Var;
     
-      @com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBAttribute
+      @com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBAttribute()
       public Integer getInt32Var() {
         return this.int32Var;
       }
@@ -2730,7 +2730,7 @@ public final class AllTypesEntityProto {
     
       private Long int64Var;
     
-      @com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBAttribute
+      @com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBAttribute()
       public Long getInt64Var() {
         return this.int64Var;
       }
@@ -2741,7 +2741,7 @@ public final class AllTypesEntityProto {
     
       private Integer uint32Var;
     
-      @com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBAttribute
+      @com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBAttribute()
       public Integer getUint32Var() {
         return this.uint32Var;
       }
@@ -2752,7 +2752,7 @@ public final class AllTypesEntityProto {
     
       private Long uint64Var;
     
-      @com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBAttribute
+      @com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBAttribute()
       public Long getUint64Var() {
         return this.uint64Var;
       }
@@ -2763,7 +2763,7 @@ public final class AllTypesEntityProto {
     
       private Float floatVar;
     
-      @com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBAttribute
+      @com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBAttribute()
       public Float getFloatVar() {
         return this.floatVar;
       }
@@ -2774,7 +2774,7 @@ public final class AllTypesEntityProto {
     
       private Double doubleVar;
     
-      @com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBAttribute
+      @com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBAttribute()
       public Double getDoubleVar() {
         return this.doubleVar;
       }
@@ -2785,7 +2785,7 @@ public final class AllTypesEntityProto {
     
       private java.util.List<String> strList;
     
-      @com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBAttribute
+      @com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBAttribute()
       public java.util.List<String> getStrList() {
         return this.strList;
       }
@@ -2796,7 +2796,7 @@ public final class AllTypesEntityProto {
     
       private java.util.List<Boolean> boolList;
     
-      @com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBAttribute
+      @com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBAttribute()
       public java.util.List<Boolean> getBoolList() {
         return this.boolList;
       }
@@ -2807,7 +2807,7 @@ public final class AllTypesEntityProto {
     
       private java.util.List<Integer> int32List;
     
-      @com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBAttribute
+      @com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBAttribute()
       public java.util.List<Integer> getInt32List() {
         return this.int32List;
       }
@@ -2818,7 +2818,7 @@ public final class AllTypesEntityProto {
     
       private java.util.List<Long> int64List;
     
-      @com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBAttribute
+      @com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBAttribute()
       public java.util.List<Long> getInt64List() {
         return this.int64List;
       }
@@ -2829,7 +2829,7 @@ public final class AllTypesEntityProto {
     
       private java.util.List<Integer> uint32List;
     
-      @com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBAttribute
+      @com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBAttribute()
       public java.util.List<Integer> getUint32List() {
         return this.uint32List;
       }
@@ -2840,7 +2840,7 @@ public final class AllTypesEntityProto {
     
       private java.util.List<Long> uint64List;
     
-      @com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBAttribute
+      @com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBAttribute()
       public java.util.List<Long> getUint64List() {
         return this.uint64List;
       }
@@ -2851,7 +2851,7 @@ public final class AllTypesEntityProto {
     
       private java.util.List<Float> floatList;
     
-      @com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBAttribute
+      @com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBAttribute()
       public java.util.List<Float> getFloatList() {
         return this.floatList;
       }
@@ -2862,7 +2862,7 @@ public final class AllTypesEntityProto {
     
       private java.util.List<Double> doubleList;
     
-      @com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBAttribute
+      @com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBAttribute()
       public java.util.List<Double> getDoubleList() {
         return this.doubleList;
       }

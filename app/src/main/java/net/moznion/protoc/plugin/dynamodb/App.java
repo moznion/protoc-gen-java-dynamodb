@@ -21,7 +21,6 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 import java.util.Optional;
-import java.util.StringJoiner;
 import java.util.function.Supplier;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -136,6 +135,7 @@ public class App extends Generator {
 	private static class DynamodbAttributeField {
 		String name;
 		String fieldName;
+		String aliasName;
 		boolean isHashKey;
 		boolean isRangeKey;
 		List<String> gsiHashKeyIndices;
@@ -151,6 +151,7 @@ public class App extends Generator {
 			return new DynamodbAttributeField(
 				fieldName,
 				fieldDescriptor.getJsonName(),
+				fieldOpt.getJavaDynamodbAlias(),
 				fieldOpt.getJavaDynamodbHashKey(),
 				fieldOpt.getJavaDynamodbRangeKey(),
 				fieldOpt.getJavaDynamodbHashKeyGsiNamesList(),
@@ -269,6 +270,7 @@ public class App extends Generator {
 											"javaMethodName",
 											getJavaMethodName(field.getFieldName())
 										)
+										.put("fieldAliasName", field.getAliasName())
 										.put("isHashKey", field.isHashKey())
 										.put("isRangeKey", field.isRangeKey())
 										.put("gsiHashKeyIndices", field.getGsiHashKeyIndices().stream().map(s -> "\"" + s + "\"").collect(Collectors.joining(", ")))

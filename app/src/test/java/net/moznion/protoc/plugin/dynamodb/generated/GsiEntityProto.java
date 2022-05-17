@@ -1151,8 +1151,8 @@ public final class GsiEntityProto {
     public static class DynamoDBEntity {
       private String hashKeyStr;
     
-      @com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBAttribute
-      @com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBHashKey
+      @com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBAttribute()
+      @com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBHashKey()
       @com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBIndexHashKey(globalSecondaryIndexNames = { "gsi0" })
       public String getHashKeyStr() {
         return this.hashKeyStr;
@@ -1164,7 +1164,7 @@ public final class GsiEntityProto {
     
       private String fooStr;
     
-      @com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBAttribute
+      @com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBAttribute()
       @com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBIndexHashKey(globalSecondaryIndexNames = { "gsi1", "gsi2" })
       public String getFooStr() {
         return this.fooStr;
@@ -1176,7 +1176,7 @@ public final class GsiEntityProto {
     
       private String barStr;
     
-      @com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBAttribute
+      @com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBAttribute()
       @com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBIndexRangeKey(globalSecondaryIndexNames = { "gsi0", "gsi1" })
       public String getBarStr() {
         return this.barStr;
@@ -1188,7 +1188,7 @@ public final class GsiEntityProto {
     
       private String buzStr;
     
-      @com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBAttribute
+      @com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBAttribute()
       @com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBIndexRangeKey(globalSecondaryIndexNames = { "gsi2" })
       public String getBuzStr() {
         return this.buzStr;
@@ -1200,7 +1200,7 @@ public final class GsiEntityProto {
     
       private String quxStr;
     
-      @com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBAttribute
+      @com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBAttribute()
       @com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBIndexHashKey(globalSecondaryIndexNames = { "gsi3" })
       public String getQuxStr() {
         return this.quxStr;
@@ -1284,10 +1284,10 @@ public final class GsiEntityProto {
       "\n\020gsi_entity.proto\022,net.moznion.protoc.p" +
       "lugin.dynamodb.generated\032\032dependencies/o" +
       "ptions.proto\"\273\001\n\tGsiEntity\022&\n\014hash_key_s" +
-      "tr\030\001 \001(\tB\020\212\265\030\002\010\001\212\265\030\006\"\004gsi0\022%\n\007foo_str\030\002 " +
-      "\001(\tB\024\212\265\030\006\"\004gsi1\212\265\030\006\"\004gsi2\022%\n\007bar_str\030\003 \001" +
-      "(\tB\024\212\265\030\006*\004gsi0\212\265\030\006*\004gsi1\022\033\n\007buz_str\030\004 \001(" +
-      "\tB\n\212\265\030\006*\004gsi2\022\033\n\007qux_str\030\005 \001(\tB\n\212\265\030\006\"\004gs" +
+      "tr\030\001 \001(\tB\020\212\265\030\002\010\001\212\265\030\006*\004gsi0\022%\n\007foo_str\030\002 " +
+      "\001(\tB\024\212\265\030\006*\004gsi1\212\265\030\006*\004gsi2\022%\n\007bar_str\030\003 \001" +
+      "(\tB\024\212\265\030\0062\004gsi0\212\265\030\0062\004gsi1\022\033\n\007buz_str\030\004 \001(" +
+      "\tB\n\212\265\030\0062\004gsi2\022\033\n\007qux_str\030\005 \001(\tB\n\212\265\030\006*\004gs" +
       "i3BT\n,net.moznion.protoc.plugin.dynamodb" +
       ".generatedB\016GsiEntityProto\202\265\030\022\n\020gsi-enti" +
       "ty-tableb\006proto3"

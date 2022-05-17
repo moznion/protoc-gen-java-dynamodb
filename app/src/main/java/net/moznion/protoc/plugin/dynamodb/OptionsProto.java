@@ -715,24 +715,36 @@ public final class OptionsProto {
     boolean getJavaDynamodbIgnore();
 
     /**
-     * <code>repeated string java_dynamodb_hash_key_gsi_names = 4;</code>
+     * <code>string java_dynamodb_alias = 4;</code>
+     * @return The javaDynamodbAlias.
+     */
+    java.lang.String getJavaDynamodbAlias();
+    /**
+     * <code>string java_dynamodb_alias = 4;</code>
+     * @return The bytes for javaDynamodbAlias.
+     */
+    com.google.protobuf.ByteString
+        getJavaDynamodbAliasBytes();
+
+    /**
+     * <code>repeated string java_dynamodb_hash_key_gsi_names = 5;</code>
      * @return A list containing the javaDynamodbHashKeyGsiNames.
      */
     java.util.List<java.lang.String>
         getJavaDynamodbHashKeyGsiNamesList();
     /**
-     * <code>repeated string java_dynamodb_hash_key_gsi_names = 4;</code>
+     * <code>repeated string java_dynamodb_hash_key_gsi_names = 5;</code>
      * @return The count of javaDynamodbHashKeyGsiNames.
      */
     int getJavaDynamodbHashKeyGsiNamesCount();
     /**
-     * <code>repeated string java_dynamodb_hash_key_gsi_names = 4;</code>
+     * <code>repeated string java_dynamodb_hash_key_gsi_names = 5;</code>
      * @param index The index of the element to return.
      * @return The javaDynamodbHashKeyGsiNames at the given index.
      */
     java.lang.String getJavaDynamodbHashKeyGsiNames(int index);
     /**
-     * <code>repeated string java_dynamodb_hash_key_gsi_names = 4;</code>
+     * <code>repeated string java_dynamodb_hash_key_gsi_names = 5;</code>
      * @param index The index of the value to return.
      * @return The bytes of the javaDynamodbHashKeyGsiNames at the given index.
      */
@@ -740,24 +752,24 @@ public final class OptionsProto {
         getJavaDynamodbHashKeyGsiNamesBytes(int index);
 
     /**
-     * <code>repeated string java_dynamodb_range_key_gsi_names = 5;</code>
+     * <code>repeated string java_dynamodb_range_key_gsi_names = 6;</code>
      * @return A list containing the javaDynamodbRangeKeyGsiNames.
      */
     java.util.List<java.lang.String>
         getJavaDynamodbRangeKeyGsiNamesList();
     /**
-     * <code>repeated string java_dynamodb_range_key_gsi_names = 5;</code>
+     * <code>repeated string java_dynamodb_range_key_gsi_names = 6;</code>
      * @return The count of javaDynamodbRangeKeyGsiNames.
      */
     int getJavaDynamodbRangeKeyGsiNamesCount();
     /**
-     * <code>repeated string java_dynamodb_range_key_gsi_names = 5;</code>
+     * <code>repeated string java_dynamodb_range_key_gsi_names = 6;</code>
      * @param index The index of the element to return.
      * @return The javaDynamodbRangeKeyGsiNames at the given index.
      */
     java.lang.String getJavaDynamodbRangeKeyGsiNames(int index);
     /**
-     * <code>repeated string java_dynamodb_range_key_gsi_names = 5;</code>
+     * <code>repeated string java_dynamodb_range_key_gsi_names = 6;</code>
      * @param index The index of the value to return.
      * @return The bytes of the javaDynamodbRangeKeyGsiNames at the given index.
      */
@@ -777,6 +789,7 @@ public final class OptionsProto {
       super(builder);
     }
     private FieldOptions() {
+      javaDynamodbAlias_ = "";
       javaDynamodbHashKeyGsiNames_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       javaDynamodbRangeKeyGsiNames_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     }
@@ -829,6 +842,12 @@ public final class OptionsProto {
             }
             case 34: {
               java.lang.String s = input.readStringRequireUtf8();
+
+              javaDynamodbAlias_ = s;
+              break;
+            }
+            case 42: {
+              java.lang.String s = input.readStringRequireUtf8();
               if (!((mutable_bitField0_ & 0x00000001) != 0)) {
                 javaDynamodbHashKeyGsiNames_ = new com.google.protobuf.LazyStringArrayList();
                 mutable_bitField0_ |= 0x00000001;
@@ -836,7 +855,7 @@ public final class OptionsProto {
               javaDynamodbHashKeyGsiNames_.add(s);
               break;
             }
-            case 42: {
+            case 50: {
               java.lang.String s = input.readStringRequireUtf8();
               if (!((mutable_bitField0_ & 0x00000002) != 0)) {
                 javaDynamodbRangeKeyGsiNames_ = new com.google.protobuf.LazyStringArrayList();
@@ -918,10 +937,48 @@ public final class OptionsProto {
       return javaDynamodbIgnore_;
     }
 
-    public static final int JAVA_DYNAMODB_HASH_KEY_GSI_NAMES_FIELD_NUMBER = 4;
+    public static final int JAVA_DYNAMODB_ALIAS_FIELD_NUMBER = 4;
+    private volatile java.lang.Object javaDynamodbAlias_;
+    /**
+     * <code>string java_dynamodb_alias = 4;</code>
+     * @return The javaDynamodbAlias.
+     */
+    @java.lang.Override
+    public java.lang.String getJavaDynamodbAlias() {
+      java.lang.Object ref = javaDynamodbAlias_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        javaDynamodbAlias_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string java_dynamodb_alias = 4;</code>
+     * @return The bytes for javaDynamodbAlias.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getJavaDynamodbAliasBytes() {
+      java.lang.Object ref = javaDynamodbAlias_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        javaDynamodbAlias_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int JAVA_DYNAMODB_HASH_KEY_GSI_NAMES_FIELD_NUMBER = 5;
     private com.google.protobuf.LazyStringList javaDynamodbHashKeyGsiNames_;
     /**
-     * <code>repeated string java_dynamodb_hash_key_gsi_names = 4;</code>
+     * <code>repeated string java_dynamodb_hash_key_gsi_names = 5;</code>
      * @return A list containing the javaDynamodbHashKeyGsiNames.
      */
     public com.google.protobuf.ProtocolStringList
@@ -929,14 +986,14 @@ public final class OptionsProto {
       return javaDynamodbHashKeyGsiNames_;
     }
     /**
-     * <code>repeated string java_dynamodb_hash_key_gsi_names = 4;</code>
+     * <code>repeated string java_dynamodb_hash_key_gsi_names = 5;</code>
      * @return The count of javaDynamodbHashKeyGsiNames.
      */
     public int getJavaDynamodbHashKeyGsiNamesCount() {
       return javaDynamodbHashKeyGsiNames_.size();
     }
     /**
-     * <code>repeated string java_dynamodb_hash_key_gsi_names = 4;</code>
+     * <code>repeated string java_dynamodb_hash_key_gsi_names = 5;</code>
      * @param index The index of the element to return.
      * @return The javaDynamodbHashKeyGsiNames at the given index.
      */
@@ -944,7 +1001,7 @@ public final class OptionsProto {
       return javaDynamodbHashKeyGsiNames_.get(index);
     }
     /**
-     * <code>repeated string java_dynamodb_hash_key_gsi_names = 4;</code>
+     * <code>repeated string java_dynamodb_hash_key_gsi_names = 5;</code>
      * @param index The index of the value to return.
      * @return The bytes of the javaDynamodbHashKeyGsiNames at the given index.
      */
@@ -953,10 +1010,10 @@ public final class OptionsProto {
       return javaDynamodbHashKeyGsiNames_.getByteString(index);
     }
 
-    public static final int JAVA_DYNAMODB_RANGE_KEY_GSI_NAMES_FIELD_NUMBER = 5;
+    public static final int JAVA_DYNAMODB_RANGE_KEY_GSI_NAMES_FIELD_NUMBER = 6;
     private com.google.protobuf.LazyStringList javaDynamodbRangeKeyGsiNames_;
     /**
-     * <code>repeated string java_dynamodb_range_key_gsi_names = 5;</code>
+     * <code>repeated string java_dynamodb_range_key_gsi_names = 6;</code>
      * @return A list containing the javaDynamodbRangeKeyGsiNames.
      */
     public com.google.protobuf.ProtocolStringList
@@ -964,14 +1021,14 @@ public final class OptionsProto {
       return javaDynamodbRangeKeyGsiNames_;
     }
     /**
-     * <code>repeated string java_dynamodb_range_key_gsi_names = 5;</code>
+     * <code>repeated string java_dynamodb_range_key_gsi_names = 6;</code>
      * @return The count of javaDynamodbRangeKeyGsiNames.
      */
     public int getJavaDynamodbRangeKeyGsiNamesCount() {
       return javaDynamodbRangeKeyGsiNames_.size();
     }
     /**
-     * <code>repeated string java_dynamodb_range_key_gsi_names = 5;</code>
+     * <code>repeated string java_dynamodb_range_key_gsi_names = 6;</code>
      * @param index The index of the element to return.
      * @return The javaDynamodbRangeKeyGsiNames at the given index.
      */
@@ -979,7 +1036,7 @@ public final class OptionsProto {
       return javaDynamodbRangeKeyGsiNames_.get(index);
     }
     /**
-     * <code>repeated string java_dynamodb_range_key_gsi_names = 5;</code>
+     * <code>repeated string java_dynamodb_range_key_gsi_names = 6;</code>
      * @param index The index of the value to return.
      * @return The bytes of the javaDynamodbRangeKeyGsiNames at the given index.
      */
@@ -1011,11 +1068,14 @@ public final class OptionsProto {
       if (javaDynamodbIgnore_ != false) {
         output.writeBool(3, javaDynamodbIgnore_);
       }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(javaDynamodbAlias_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 4, javaDynamodbAlias_);
+      }
       for (int i = 0; i < javaDynamodbHashKeyGsiNames_.size(); i++) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 4, javaDynamodbHashKeyGsiNames_.getRaw(i));
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 5, javaDynamodbHashKeyGsiNames_.getRaw(i));
       }
       for (int i = 0; i < javaDynamodbRangeKeyGsiNames_.size(); i++) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 5, javaDynamodbRangeKeyGsiNames_.getRaw(i));
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 6, javaDynamodbRangeKeyGsiNames_.getRaw(i));
       }
       unknownFields.writeTo(output);
     }
@@ -1037,6 +1097,9 @@ public final class OptionsProto {
       if (javaDynamodbIgnore_ != false) {
         size += com.google.protobuf.CodedOutputStream
           .computeBoolSize(3, javaDynamodbIgnore_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(javaDynamodbAlias_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, javaDynamodbAlias_);
       }
       {
         int dataSize = 0;
@@ -1075,6 +1138,8 @@ public final class OptionsProto {
           != other.getJavaDynamodbRangeKey()) return false;
       if (getJavaDynamodbIgnore()
           != other.getJavaDynamodbIgnore()) return false;
+      if (!getJavaDynamodbAlias()
+          .equals(other.getJavaDynamodbAlias())) return false;
       if (!getJavaDynamodbHashKeyGsiNamesList()
           .equals(other.getJavaDynamodbHashKeyGsiNamesList())) return false;
       if (!getJavaDynamodbRangeKeyGsiNamesList()
@@ -1099,6 +1164,8 @@ public final class OptionsProto {
       hash = (37 * hash) + JAVA_DYNAMODB_IGNORE_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
           getJavaDynamodbIgnore());
+      hash = (37 * hash) + JAVA_DYNAMODB_ALIAS_FIELD_NUMBER;
+      hash = (53 * hash) + getJavaDynamodbAlias().hashCode();
       if (getJavaDynamodbHashKeyGsiNamesCount() > 0) {
         hash = (37 * hash) + JAVA_DYNAMODB_HASH_KEY_GSI_NAMES_FIELD_NUMBER;
         hash = (53 * hash) + getJavaDynamodbHashKeyGsiNamesList().hashCode();
@@ -1246,6 +1313,8 @@ public final class OptionsProto {
 
         javaDynamodbIgnore_ = false;
 
+        javaDynamodbAlias_ = "";
+
         javaDynamodbHashKeyGsiNames_ = com.google.protobuf.LazyStringArrayList.EMPTY;
         bitField0_ = (bitField0_ & ~0x00000001);
         javaDynamodbRangeKeyGsiNames_ = com.google.protobuf.LazyStringArrayList.EMPTY;
@@ -1280,6 +1349,7 @@ public final class OptionsProto {
         result.javaDynamodbHashKey_ = javaDynamodbHashKey_;
         result.javaDynamodbRangeKey_ = javaDynamodbRangeKey_;
         result.javaDynamodbIgnore_ = javaDynamodbIgnore_;
+        result.javaDynamodbAlias_ = javaDynamodbAlias_;
         if (((bitField0_ & 0x00000001) != 0)) {
           javaDynamodbHashKeyGsiNames_ = javaDynamodbHashKeyGsiNames_.getUnmodifiableView();
           bitField0_ = (bitField0_ & ~0x00000001);
@@ -1346,6 +1416,10 @@ public final class OptionsProto {
         }
         if (other.getJavaDynamodbIgnore() != false) {
           setJavaDynamodbIgnore(other.getJavaDynamodbIgnore());
+        }
+        if (!other.getJavaDynamodbAlias().isEmpty()) {
+          javaDynamodbAlias_ = other.javaDynamodbAlias_;
+          onChanged();
         }
         if (!other.javaDynamodbHashKeyGsiNames_.isEmpty()) {
           if (javaDynamodbHashKeyGsiNames_.isEmpty()) {
@@ -1490,6 +1564,82 @@ public final class OptionsProto {
         return this;
       }
 
+      private java.lang.Object javaDynamodbAlias_ = "";
+      /**
+       * <code>string java_dynamodb_alias = 4;</code>
+       * @return The javaDynamodbAlias.
+       */
+      public java.lang.String getJavaDynamodbAlias() {
+        java.lang.Object ref = javaDynamodbAlias_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          javaDynamodbAlias_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string java_dynamodb_alias = 4;</code>
+       * @return The bytes for javaDynamodbAlias.
+       */
+      public com.google.protobuf.ByteString
+          getJavaDynamodbAliasBytes() {
+        java.lang.Object ref = javaDynamodbAlias_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          javaDynamodbAlias_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string java_dynamodb_alias = 4;</code>
+       * @param value The javaDynamodbAlias to set.
+       * @return This builder for chaining.
+       */
+      public Builder setJavaDynamodbAlias(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        javaDynamodbAlias_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string java_dynamodb_alias = 4;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearJavaDynamodbAlias() {
+        
+        javaDynamodbAlias_ = getDefaultInstance().getJavaDynamodbAlias();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string java_dynamodb_alias = 4;</code>
+       * @param value The bytes for javaDynamodbAlias to set.
+       * @return This builder for chaining.
+       */
+      public Builder setJavaDynamodbAliasBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        javaDynamodbAlias_ = value;
+        onChanged();
+        return this;
+      }
+
       private com.google.protobuf.LazyStringList javaDynamodbHashKeyGsiNames_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       private void ensureJavaDynamodbHashKeyGsiNamesIsMutable() {
         if (!((bitField0_ & 0x00000001) != 0)) {
@@ -1498,7 +1648,7 @@ public final class OptionsProto {
          }
       }
       /**
-       * <code>repeated string java_dynamodb_hash_key_gsi_names = 4;</code>
+       * <code>repeated string java_dynamodb_hash_key_gsi_names = 5;</code>
        * @return A list containing the javaDynamodbHashKeyGsiNames.
        */
       public com.google.protobuf.ProtocolStringList
@@ -1506,14 +1656,14 @@ public final class OptionsProto {
         return javaDynamodbHashKeyGsiNames_.getUnmodifiableView();
       }
       /**
-       * <code>repeated string java_dynamodb_hash_key_gsi_names = 4;</code>
+       * <code>repeated string java_dynamodb_hash_key_gsi_names = 5;</code>
        * @return The count of javaDynamodbHashKeyGsiNames.
        */
       public int getJavaDynamodbHashKeyGsiNamesCount() {
         return javaDynamodbHashKeyGsiNames_.size();
       }
       /**
-       * <code>repeated string java_dynamodb_hash_key_gsi_names = 4;</code>
+       * <code>repeated string java_dynamodb_hash_key_gsi_names = 5;</code>
        * @param index The index of the element to return.
        * @return The javaDynamodbHashKeyGsiNames at the given index.
        */
@@ -1521,7 +1671,7 @@ public final class OptionsProto {
         return javaDynamodbHashKeyGsiNames_.get(index);
       }
       /**
-       * <code>repeated string java_dynamodb_hash_key_gsi_names = 4;</code>
+       * <code>repeated string java_dynamodb_hash_key_gsi_names = 5;</code>
        * @param index The index of the value to return.
        * @return The bytes of the javaDynamodbHashKeyGsiNames at the given index.
        */
@@ -1530,7 +1680,7 @@ public final class OptionsProto {
         return javaDynamodbHashKeyGsiNames_.getByteString(index);
       }
       /**
-       * <code>repeated string java_dynamodb_hash_key_gsi_names = 4;</code>
+       * <code>repeated string java_dynamodb_hash_key_gsi_names = 5;</code>
        * @param index The index to set the value at.
        * @param value The javaDynamodbHashKeyGsiNames to set.
        * @return This builder for chaining.
@@ -1546,7 +1696,7 @@ public final class OptionsProto {
         return this;
       }
       /**
-       * <code>repeated string java_dynamodb_hash_key_gsi_names = 4;</code>
+       * <code>repeated string java_dynamodb_hash_key_gsi_names = 5;</code>
        * @param value The javaDynamodbHashKeyGsiNames to add.
        * @return This builder for chaining.
        */
@@ -1561,7 +1711,7 @@ public final class OptionsProto {
         return this;
       }
       /**
-       * <code>repeated string java_dynamodb_hash_key_gsi_names = 4;</code>
+       * <code>repeated string java_dynamodb_hash_key_gsi_names = 5;</code>
        * @param values The javaDynamodbHashKeyGsiNames to add.
        * @return This builder for chaining.
        */
@@ -1574,7 +1724,7 @@ public final class OptionsProto {
         return this;
       }
       /**
-       * <code>repeated string java_dynamodb_hash_key_gsi_names = 4;</code>
+       * <code>repeated string java_dynamodb_hash_key_gsi_names = 5;</code>
        * @return This builder for chaining.
        */
       public Builder clearJavaDynamodbHashKeyGsiNames() {
@@ -1584,7 +1734,7 @@ public final class OptionsProto {
         return this;
       }
       /**
-       * <code>repeated string java_dynamodb_hash_key_gsi_names = 4;</code>
+       * <code>repeated string java_dynamodb_hash_key_gsi_names = 5;</code>
        * @param value The bytes of the javaDynamodbHashKeyGsiNames to add.
        * @return This builder for chaining.
        */
@@ -1608,7 +1758,7 @@ public final class OptionsProto {
          }
       }
       /**
-       * <code>repeated string java_dynamodb_range_key_gsi_names = 5;</code>
+       * <code>repeated string java_dynamodb_range_key_gsi_names = 6;</code>
        * @return A list containing the javaDynamodbRangeKeyGsiNames.
        */
       public com.google.protobuf.ProtocolStringList
@@ -1616,14 +1766,14 @@ public final class OptionsProto {
         return javaDynamodbRangeKeyGsiNames_.getUnmodifiableView();
       }
       /**
-       * <code>repeated string java_dynamodb_range_key_gsi_names = 5;</code>
+       * <code>repeated string java_dynamodb_range_key_gsi_names = 6;</code>
        * @return The count of javaDynamodbRangeKeyGsiNames.
        */
       public int getJavaDynamodbRangeKeyGsiNamesCount() {
         return javaDynamodbRangeKeyGsiNames_.size();
       }
       /**
-       * <code>repeated string java_dynamodb_range_key_gsi_names = 5;</code>
+       * <code>repeated string java_dynamodb_range_key_gsi_names = 6;</code>
        * @param index The index of the element to return.
        * @return The javaDynamodbRangeKeyGsiNames at the given index.
        */
@@ -1631,7 +1781,7 @@ public final class OptionsProto {
         return javaDynamodbRangeKeyGsiNames_.get(index);
       }
       /**
-       * <code>repeated string java_dynamodb_range_key_gsi_names = 5;</code>
+       * <code>repeated string java_dynamodb_range_key_gsi_names = 6;</code>
        * @param index The index of the value to return.
        * @return The bytes of the javaDynamodbRangeKeyGsiNames at the given index.
        */
@@ -1640,7 +1790,7 @@ public final class OptionsProto {
         return javaDynamodbRangeKeyGsiNames_.getByteString(index);
       }
       /**
-       * <code>repeated string java_dynamodb_range_key_gsi_names = 5;</code>
+       * <code>repeated string java_dynamodb_range_key_gsi_names = 6;</code>
        * @param index The index to set the value at.
        * @param value The javaDynamodbRangeKeyGsiNames to set.
        * @return This builder for chaining.
@@ -1656,7 +1806,7 @@ public final class OptionsProto {
         return this;
       }
       /**
-       * <code>repeated string java_dynamodb_range_key_gsi_names = 5;</code>
+       * <code>repeated string java_dynamodb_range_key_gsi_names = 6;</code>
        * @param value The javaDynamodbRangeKeyGsiNames to add.
        * @return This builder for chaining.
        */
@@ -1671,7 +1821,7 @@ public final class OptionsProto {
         return this;
       }
       /**
-       * <code>repeated string java_dynamodb_range_key_gsi_names = 5;</code>
+       * <code>repeated string java_dynamodb_range_key_gsi_names = 6;</code>
        * @param values The javaDynamodbRangeKeyGsiNames to add.
        * @return This builder for chaining.
        */
@@ -1684,7 +1834,7 @@ public final class OptionsProto {
         return this;
       }
       /**
-       * <code>repeated string java_dynamodb_range_key_gsi_names = 5;</code>
+       * <code>repeated string java_dynamodb_range_key_gsi_names = 6;</code>
        * @return This builder for chaining.
        */
       public Builder clearJavaDynamodbRangeKeyGsiNames() {
@@ -1694,7 +1844,7 @@ public final class OptionsProto {
         return this;
       }
       /**
-       * <code>repeated string java_dynamodb_range_key_gsi_names = 5;</code>
+       * <code>repeated string java_dynamodb_range_key_gsi_names = 6;</code>
        * @param value The bytes of the javaDynamodbRangeKeyGsiNames to add.
        * @return This builder for chaining.
        */
@@ -1816,18 +1966,19 @@ public final class OptionsProto {
       "riptor.proto\"{\n\013FileOptions\022 \n\030java_dyna" +
       "modb_table_name\030\001 \001(\t\022)\n\034java_dynamodb_n" +
       "o_strict_mode\030\002 \001(\010H\000\210\001\001B\037\n\035_java_dynamo" +
-      "db_no_strict_mode\"\302\001\n\014FieldOptions\022\036\n\026ja" +
+      "db_no_strict_mode\"\337\001\n\014FieldOptions\022\036\n\026ja" +
       "va_dynamodb_hash_key\030\001 \001(\010\022\037\n\027java_dynam" +
       "odb_range_key\030\002 \001(\010\022\034\n\024java_dynamodb_ign" +
-      "ore\030\003 \001(\010\022(\n java_dynamodb_hash_key_gsi_" +
-      "names\030\004 \003(\t\022)\n!java_dynamodb_range_key_g" +
-      "si_names\030\005 \003(\t:`\n\007fileopt\022\034.google.proto" +
-      "buf.FileOptions\030\320\206\003 \001(\0132/.net.moznion.pr" +
-      "otoc.plugin.dynamodb.FileOptions:c\n\010fiel" +
-      "dopt\022\035.google.protobuf.FieldOptions\030\321\206\003 " +
-      "\001(\01320.net.moznion.protoc.plugin.dynamodb" +
-      ".FieldOptionsB2\n\"net.moznion.protoc.plug" +
-      "in.dynamodbB\014OptionsProtob\006proto3"
+      "ore\030\003 \001(\010\022\033\n\023java_dynamodb_alias\030\004 \001(\t\022(" +
+      "\n java_dynamodb_hash_key_gsi_names\030\005 \003(\t" +
+      "\022)\n!java_dynamodb_range_key_gsi_names\030\006 " +
+      "\003(\t:`\n\007fileopt\022\034.google.protobuf.FileOpt" +
+      "ions\030\320\206\003 \001(\0132/.net.moznion.protoc.plugin" +
+      ".dynamodb.FileOptions:c\n\010fieldopt\022\035.goog" +
+      "le.protobuf.FieldOptions\030\321\206\003 \001(\01320.net.m" +
+      "oznion.protoc.plugin.dynamodb.FieldOptio" +
+      "nsB2\n\"net.moznion.protoc.plugin.dynamodb" +
+      "B\014OptionsProtob\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -1845,7 +1996,7 @@ public final class OptionsProto {
     internal_static_net_moznion_protoc_plugin_dynamodb_FieldOptions_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_net_moznion_protoc_plugin_dynamodb_FieldOptions_descriptor,
-        new java.lang.String[] { "JavaDynamodbHashKey", "JavaDynamodbRangeKey", "JavaDynamodbIgnore", "JavaDynamodbHashKeyGsiNames", "JavaDynamodbRangeKeyGsiNames", });
+        new java.lang.String[] { "JavaDynamodbHashKey", "JavaDynamodbRangeKey", "JavaDynamodbIgnore", "JavaDynamodbAlias", "JavaDynamodbHashKeyGsiNames", "JavaDynamodbRangeKeyGsiNames", });
     fileopt.internalInit(descriptor.getExtensions().get(0));
     fieldopt.internalInit(descriptor.getExtensions().get(1));
     com.google.protobuf.DescriptorProtos.getDescriptor();
