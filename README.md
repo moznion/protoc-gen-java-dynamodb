@@ -1,4 +1,4 @@
-# protoc-gen-java-dynamodb
+# protoc-gen-java-dynamodb [![Test](https://github.com/moznion/protoc-gen-java-dynamodb/actions/workflows/test.yaml/badge.svg)](https://github.com/moznion/protoc-gen-java-dynamodb/actions/workflows/test.yaml)
 
 A [Protocol Buffers](https://developers.google.com/protocol-buffers) code generator plugin for Java that generates [Amazon DynamoDB](https://aws.amazon.com/dynamodb) entity code according to the protoc schema.
 
@@ -100,11 +100,11 @@ So then you can use the AWS SDK provided DynamoDB utilities like the following.
 ```java
 final DynamoDBMapper dynamodbMapper = new DynamoDBMapper(...);
 
-ExampleEntityProto.ExampleEntity entity = ExampleEntityProto.ExampleEntity.newBuilder()
-                                                            .setHashKey("hashKey")
-                                                            .setRangeKey(1234567890)
-                                                            .setBoolVar(true)
-                                                            .build();
+final ExampleEntityProto.ExampleEntity entity = ExampleEntityProto.ExampleEntity.newBuilder()
+                                                                  .setHashKey("hashKey")
+                                                                  .setRangeKey(1234567890)
+                                                                  .setBoolVar(true)
+                                                                  .build();
 dynamodbMapper.save(entity.toDynamoDBEntity()); // this plugin generates `#toDynamoDBEntity()` method
 
 // retrieve the entity vise versa
