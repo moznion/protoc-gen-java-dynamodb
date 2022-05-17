@@ -58,7 +58,6 @@ public class App extends Generator {
 	private static class Options {
 		String tableName;
 		boolean noStrict;
-		Set<String> ignoreFieldNames;
 		Map<String, List<String>> gsiHashKeys;
 		Map<String, List<String>> gsiRangeKeys;
 
@@ -66,7 +65,6 @@ public class App extends Generator {
 			return new Options(
 				opts.getJavaDynamodbTableName(),
 				opts.getJavaDynamodbNoStrictMode(),
-				new HashSet<>(opts.getJavaDynamodbIgnoreFieldNamesList()),
 				opts.getJavaDynamodbGsiHashKeysList()
 					.stream()
 					.collect(Collectors.toMap(
@@ -245,7 +243,7 @@ public class App extends Generator {
 		final DynamodbAttributeFields fields = new DynamodbAttributeFields(
 			messageDescriptor.getFieldList()
 							 .stream()
-							 .filter(field -> !opts.getIgnoreFieldNames().contains(field.getName()))
+							 .filter(field -> !field.getOptions().getExtension(OptionsProto.fieldopt).getJavaDynamodbIgnore())
 							 .map(field -> DynamodbAttributeField.from(field, opts).validate())
 							 .collect(Collectors.toList())
 		).validate();

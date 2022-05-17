@@ -44,74 +44,49 @@ public final class OptionsProto {
     boolean getJavaDynamodbNoStrictMode();
 
     /**
-     * <code>repeated string java_dynamodb_ignore_field_names = 4;</code>
-     * @return A list containing the javaDynamodbIgnoreFieldNames.
-     */
-    java.util.List<java.lang.String>
-        getJavaDynamodbIgnoreFieldNamesList();
-    /**
-     * <code>repeated string java_dynamodb_ignore_field_names = 4;</code>
-     * @return The count of javaDynamodbIgnoreFieldNames.
-     */
-    int getJavaDynamodbIgnoreFieldNamesCount();
-    /**
-     * <code>repeated string java_dynamodb_ignore_field_names = 4;</code>
-     * @param index The index of the element to return.
-     * @return The javaDynamodbIgnoreFieldNames at the given index.
-     */
-    java.lang.String getJavaDynamodbIgnoreFieldNames(int index);
-    /**
-     * <code>repeated string java_dynamodb_ignore_field_names = 4;</code>
-     * @param index The index of the value to return.
-     * @return The bytes of the javaDynamodbIgnoreFieldNames at the given index.
-     */
-    com.google.protobuf.ByteString
-        getJavaDynamodbIgnoreFieldNamesBytes(int index);
-
-    /**
-     * <code>repeated .net.moznion.protoc.plugin.dynamodb.DynamoDBIndexKey java_dynamodb_gsi_hash_keys = 5;</code>
+     * <code>repeated .net.moznion.protoc.plugin.dynamodb.DynamoDBIndexKey java_dynamodb_gsi_hash_keys = 3;</code>
      */
     java.util.List<net.moznion.protoc.plugin.dynamodb.OptionsProto.DynamoDBIndexKey> 
         getJavaDynamodbGsiHashKeysList();
     /**
-     * <code>repeated .net.moznion.protoc.plugin.dynamodb.DynamoDBIndexKey java_dynamodb_gsi_hash_keys = 5;</code>
+     * <code>repeated .net.moznion.protoc.plugin.dynamodb.DynamoDBIndexKey java_dynamodb_gsi_hash_keys = 3;</code>
      */
     net.moznion.protoc.plugin.dynamodb.OptionsProto.DynamoDBIndexKey getJavaDynamodbGsiHashKeys(int index);
     /**
-     * <code>repeated .net.moznion.protoc.plugin.dynamodb.DynamoDBIndexKey java_dynamodb_gsi_hash_keys = 5;</code>
+     * <code>repeated .net.moznion.protoc.plugin.dynamodb.DynamoDBIndexKey java_dynamodb_gsi_hash_keys = 3;</code>
      */
     int getJavaDynamodbGsiHashKeysCount();
     /**
-     * <code>repeated .net.moznion.protoc.plugin.dynamodb.DynamoDBIndexKey java_dynamodb_gsi_hash_keys = 5;</code>
+     * <code>repeated .net.moznion.protoc.plugin.dynamodb.DynamoDBIndexKey java_dynamodb_gsi_hash_keys = 3;</code>
      */
     java.util.List<? extends net.moznion.protoc.plugin.dynamodb.OptionsProto.DynamoDBIndexKeyOrBuilder> 
         getJavaDynamodbGsiHashKeysOrBuilderList();
     /**
-     * <code>repeated .net.moznion.protoc.plugin.dynamodb.DynamoDBIndexKey java_dynamodb_gsi_hash_keys = 5;</code>
+     * <code>repeated .net.moznion.protoc.plugin.dynamodb.DynamoDBIndexKey java_dynamodb_gsi_hash_keys = 3;</code>
      */
     net.moznion.protoc.plugin.dynamodb.OptionsProto.DynamoDBIndexKeyOrBuilder getJavaDynamodbGsiHashKeysOrBuilder(
         int index);
 
     /**
-     * <code>repeated .net.moznion.protoc.plugin.dynamodb.DynamoDBIndexKey java_dynamodb_gsi_range_keys = 6;</code>
+     * <code>repeated .net.moznion.protoc.plugin.dynamodb.DynamoDBIndexKey java_dynamodb_gsi_range_keys = 4;</code>
      */
     java.util.List<net.moznion.protoc.plugin.dynamodb.OptionsProto.DynamoDBIndexKey> 
         getJavaDynamodbGsiRangeKeysList();
     /**
-     * <code>repeated .net.moznion.protoc.plugin.dynamodb.DynamoDBIndexKey java_dynamodb_gsi_range_keys = 6;</code>
+     * <code>repeated .net.moznion.protoc.plugin.dynamodb.DynamoDBIndexKey java_dynamodb_gsi_range_keys = 4;</code>
      */
     net.moznion.protoc.plugin.dynamodb.OptionsProto.DynamoDBIndexKey getJavaDynamodbGsiRangeKeys(int index);
     /**
-     * <code>repeated .net.moznion.protoc.plugin.dynamodb.DynamoDBIndexKey java_dynamodb_gsi_range_keys = 6;</code>
+     * <code>repeated .net.moznion.protoc.plugin.dynamodb.DynamoDBIndexKey java_dynamodb_gsi_range_keys = 4;</code>
      */
     int getJavaDynamodbGsiRangeKeysCount();
     /**
-     * <code>repeated .net.moznion.protoc.plugin.dynamodb.DynamoDBIndexKey java_dynamodb_gsi_range_keys = 6;</code>
+     * <code>repeated .net.moznion.protoc.plugin.dynamodb.DynamoDBIndexKey java_dynamodb_gsi_range_keys = 4;</code>
      */
     java.util.List<? extends net.moznion.protoc.plugin.dynamodb.OptionsProto.DynamoDBIndexKeyOrBuilder> 
         getJavaDynamodbGsiRangeKeysOrBuilderList();
     /**
-     * <code>repeated .net.moznion.protoc.plugin.dynamodb.DynamoDBIndexKey java_dynamodb_gsi_range_keys = 6;</code>
+     * <code>repeated .net.moznion.protoc.plugin.dynamodb.DynamoDBIndexKey java_dynamodb_gsi_range_keys = 4;</code>
      */
     net.moznion.protoc.plugin.dynamodb.OptionsProto.DynamoDBIndexKeyOrBuilder getJavaDynamodbGsiRangeKeysOrBuilder(
         int index);
@@ -130,7 +105,6 @@ public final class OptionsProto {
     }
     private FileOptions() {
       javaDynamodbTableName_ = "";
-      javaDynamodbIgnoreFieldNames_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       javaDynamodbGsiHashKeys_ = java.util.Collections.emptyList();
       javaDynamodbGsiRangeKeys_ = java.util.Collections.emptyList();
     }
@@ -177,28 +151,19 @@ public final class OptionsProto {
               javaDynamodbNoStrictMode_ = input.readBool();
               break;
             }
-            case 34: {
-              java.lang.String s = input.readStringRequireUtf8();
+            case 26: {
               if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-                javaDynamodbIgnoreFieldNames_ = new com.google.protobuf.LazyStringArrayList();
-                mutable_bitField0_ |= 0x00000002;
-              }
-              javaDynamodbIgnoreFieldNames_.add(s);
-              break;
-            }
-            case 42: {
-              if (!((mutable_bitField0_ & 0x00000004) != 0)) {
                 javaDynamodbGsiHashKeys_ = new java.util.ArrayList<net.moznion.protoc.plugin.dynamodb.OptionsProto.DynamoDBIndexKey>();
-                mutable_bitField0_ |= 0x00000004;
+                mutable_bitField0_ |= 0x00000002;
               }
               javaDynamodbGsiHashKeys_.add(
                   input.readMessage(net.moznion.protoc.plugin.dynamodb.OptionsProto.DynamoDBIndexKey.parser(), extensionRegistry));
               break;
             }
-            case 50: {
-              if (!((mutable_bitField0_ & 0x00000008) != 0)) {
+            case 34: {
+              if (!((mutable_bitField0_ & 0x00000004) != 0)) {
                 javaDynamodbGsiRangeKeys_ = new java.util.ArrayList<net.moznion.protoc.plugin.dynamodb.OptionsProto.DynamoDBIndexKey>();
-                mutable_bitField0_ |= 0x00000008;
+                mutable_bitField0_ |= 0x00000004;
               }
               javaDynamodbGsiRangeKeys_.add(
                   input.readMessage(net.moznion.protoc.plugin.dynamodb.OptionsProto.DynamoDBIndexKey.parser(), extensionRegistry));
@@ -222,12 +187,9 @@ public final class OptionsProto {
             e).setUnfinishedMessage(this);
       } finally {
         if (((mutable_bitField0_ & 0x00000002) != 0)) {
-          javaDynamodbIgnoreFieldNames_ = javaDynamodbIgnoreFieldNames_.getUnmodifiableView();
-        }
-        if (((mutable_bitField0_ & 0x00000004) != 0)) {
           javaDynamodbGsiHashKeys_ = java.util.Collections.unmodifiableList(javaDynamodbGsiHashKeys_);
         }
-        if (((mutable_bitField0_ & 0x00000008) != 0)) {
+        if (((mutable_bitField0_ & 0x00000004) != 0)) {
           javaDynamodbGsiRangeKeys_ = java.util.Collections.unmodifiableList(javaDynamodbGsiRangeKeys_);
         }
         this.unknownFields = unknownFields.build();
@@ -305,52 +267,17 @@ public final class OptionsProto {
       return javaDynamodbNoStrictMode_;
     }
 
-    public static final int JAVA_DYNAMODB_IGNORE_FIELD_NAMES_FIELD_NUMBER = 4;
-    private com.google.protobuf.LazyStringList javaDynamodbIgnoreFieldNames_;
-    /**
-     * <code>repeated string java_dynamodb_ignore_field_names = 4;</code>
-     * @return A list containing the javaDynamodbIgnoreFieldNames.
-     */
-    public com.google.protobuf.ProtocolStringList
-        getJavaDynamodbIgnoreFieldNamesList() {
-      return javaDynamodbIgnoreFieldNames_;
-    }
-    /**
-     * <code>repeated string java_dynamodb_ignore_field_names = 4;</code>
-     * @return The count of javaDynamodbIgnoreFieldNames.
-     */
-    public int getJavaDynamodbIgnoreFieldNamesCount() {
-      return javaDynamodbIgnoreFieldNames_.size();
-    }
-    /**
-     * <code>repeated string java_dynamodb_ignore_field_names = 4;</code>
-     * @param index The index of the element to return.
-     * @return The javaDynamodbIgnoreFieldNames at the given index.
-     */
-    public java.lang.String getJavaDynamodbIgnoreFieldNames(int index) {
-      return javaDynamodbIgnoreFieldNames_.get(index);
-    }
-    /**
-     * <code>repeated string java_dynamodb_ignore_field_names = 4;</code>
-     * @param index The index of the value to return.
-     * @return The bytes of the javaDynamodbIgnoreFieldNames at the given index.
-     */
-    public com.google.protobuf.ByteString
-        getJavaDynamodbIgnoreFieldNamesBytes(int index) {
-      return javaDynamodbIgnoreFieldNames_.getByteString(index);
-    }
-
-    public static final int JAVA_DYNAMODB_GSI_HASH_KEYS_FIELD_NUMBER = 5;
+    public static final int JAVA_DYNAMODB_GSI_HASH_KEYS_FIELD_NUMBER = 3;
     private java.util.List<net.moznion.protoc.plugin.dynamodb.OptionsProto.DynamoDBIndexKey> javaDynamodbGsiHashKeys_;
     /**
-     * <code>repeated .net.moznion.protoc.plugin.dynamodb.DynamoDBIndexKey java_dynamodb_gsi_hash_keys = 5;</code>
+     * <code>repeated .net.moznion.protoc.plugin.dynamodb.DynamoDBIndexKey java_dynamodb_gsi_hash_keys = 3;</code>
      */
     @java.lang.Override
     public java.util.List<net.moznion.protoc.plugin.dynamodb.OptionsProto.DynamoDBIndexKey> getJavaDynamodbGsiHashKeysList() {
       return javaDynamodbGsiHashKeys_;
     }
     /**
-     * <code>repeated .net.moznion.protoc.plugin.dynamodb.DynamoDBIndexKey java_dynamodb_gsi_hash_keys = 5;</code>
+     * <code>repeated .net.moznion.protoc.plugin.dynamodb.DynamoDBIndexKey java_dynamodb_gsi_hash_keys = 3;</code>
      */
     @java.lang.Override
     public java.util.List<? extends net.moznion.protoc.plugin.dynamodb.OptionsProto.DynamoDBIndexKeyOrBuilder> 
@@ -358,21 +285,21 @@ public final class OptionsProto {
       return javaDynamodbGsiHashKeys_;
     }
     /**
-     * <code>repeated .net.moznion.protoc.plugin.dynamodb.DynamoDBIndexKey java_dynamodb_gsi_hash_keys = 5;</code>
+     * <code>repeated .net.moznion.protoc.plugin.dynamodb.DynamoDBIndexKey java_dynamodb_gsi_hash_keys = 3;</code>
      */
     @java.lang.Override
     public int getJavaDynamodbGsiHashKeysCount() {
       return javaDynamodbGsiHashKeys_.size();
     }
     /**
-     * <code>repeated .net.moznion.protoc.plugin.dynamodb.DynamoDBIndexKey java_dynamodb_gsi_hash_keys = 5;</code>
+     * <code>repeated .net.moznion.protoc.plugin.dynamodb.DynamoDBIndexKey java_dynamodb_gsi_hash_keys = 3;</code>
      */
     @java.lang.Override
     public net.moznion.protoc.plugin.dynamodb.OptionsProto.DynamoDBIndexKey getJavaDynamodbGsiHashKeys(int index) {
       return javaDynamodbGsiHashKeys_.get(index);
     }
     /**
-     * <code>repeated .net.moznion.protoc.plugin.dynamodb.DynamoDBIndexKey java_dynamodb_gsi_hash_keys = 5;</code>
+     * <code>repeated .net.moznion.protoc.plugin.dynamodb.DynamoDBIndexKey java_dynamodb_gsi_hash_keys = 3;</code>
      */
     @java.lang.Override
     public net.moznion.protoc.plugin.dynamodb.OptionsProto.DynamoDBIndexKeyOrBuilder getJavaDynamodbGsiHashKeysOrBuilder(
@@ -380,17 +307,17 @@ public final class OptionsProto {
       return javaDynamodbGsiHashKeys_.get(index);
     }
 
-    public static final int JAVA_DYNAMODB_GSI_RANGE_KEYS_FIELD_NUMBER = 6;
+    public static final int JAVA_DYNAMODB_GSI_RANGE_KEYS_FIELD_NUMBER = 4;
     private java.util.List<net.moznion.protoc.plugin.dynamodb.OptionsProto.DynamoDBIndexKey> javaDynamodbGsiRangeKeys_;
     /**
-     * <code>repeated .net.moznion.protoc.plugin.dynamodb.DynamoDBIndexKey java_dynamodb_gsi_range_keys = 6;</code>
+     * <code>repeated .net.moznion.protoc.plugin.dynamodb.DynamoDBIndexKey java_dynamodb_gsi_range_keys = 4;</code>
      */
     @java.lang.Override
     public java.util.List<net.moznion.protoc.plugin.dynamodb.OptionsProto.DynamoDBIndexKey> getJavaDynamodbGsiRangeKeysList() {
       return javaDynamodbGsiRangeKeys_;
     }
     /**
-     * <code>repeated .net.moznion.protoc.plugin.dynamodb.DynamoDBIndexKey java_dynamodb_gsi_range_keys = 6;</code>
+     * <code>repeated .net.moznion.protoc.plugin.dynamodb.DynamoDBIndexKey java_dynamodb_gsi_range_keys = 4;</code>
      */
     @java.lang.Override
     public java.util.List<? extends net.moznion.protoc.plugin.dynamodb.OptionsProto.DynamoDBIndexKeyOrBuilder> 
@@ -398,21 +325,21 @@ public final class OptionsProto {
       return javaDynamodbGsiRangeKeys_;
     }
     /**
-     * <code>repeated .net.moznion.protoc.plugin.dynamodb.DynamoDBIndexKey java_dynamodb_gsi_range_keys = 6;</code>
+     * <code>repeated .net.moznion.protoc.plugin.dynamodb.DynamoDBIndexKey java_dynamodb_gsi_range_keys = 4;</code>
      */
     @java.lang.Override
     public int getJavaDynamodbGsiRangeKeysCount() {
       return javaDynamodbGsiRangeKeys_.size();
     }
     /**
-     * <code>repeated .net.moznion.protoc.plugin.dynamodb.DynamoDBIndexKey java_dynamodb_gsi_range_keys = 6;</code>
+     * <code>repeated .net.moznion.protoc.plugin.dynamodb.DynamoDBIndexKey java_dynamodb_gsi_range_keys = 4;</code>
      */
     @java.lang.Override
     public net.moznion.protoc.plugin.dynamodb.OptionsProto.DynamoDBIndexKey getJavaDynamodbGsiRangeKeys(int index) {
       return javaDynamodbGsiRangeKeys_.get(index);
     }
     /**
-     * <code>repeated .net.moznion.protoc.plugin.dynamodb.DynamoDBIndexKey java_dynamodb_gsi_range_keys = 6;</code>
+     * <code>repeated .net.moznion.protoc.plugin.dynamodb.DynamoDBIndexKey java_dynamodb_gsi_range_keys = 4;</code>
      */
     @java.lang.Override
     public net.moznion.protoc.plugin.dynamodb.OptionsProto.DynamoDBIndexKeyOrBuilder getJavaDynamodbGsiRangeKeysOrBuilder(
@@ -440,14 +367,11 @@ public final class OptionsProto {
       if (((bitField0_ & 0x00000001) != 0)) {
         output.writeBool(2, javaDynamodbNoStrictMode_);
       }
-      for (int i = 0; i < javaDynamodbIgnoreFieldNames_.size(); i++) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 4, javaDynamodbIgnoreFieldNames_.getRaw(i));
-      }
       for (int i = 0; i < javaDynamodbGsiHashKeys_.size(); i++) {
-        output.writeMessage(5, javaDynamodbGsiHashKeys_.get(i));
+        output.writeMessage(3, javaDynamodbGsiHashKeys_.get(i));
       }
       for (int i = 0; i < javaDynamodbGsiRangeKeys_.size(); i++) {
-        output.writeMessage(6, javaDynamodbGsiRangeKeys_.get(i));
+        output.writeMessage(4, javaDynamodbGsiRangeKeys_.get(i));
       }
       unknownFields.writeTo(output);
     }
@@ -465,21 +389,13 @@ public final class OptionsProto {
         size += com.google.protobuf.CodedOutputStream
           .computeBoolSize(2, javaDynamodbNoStrictMode_);
       }
-      {
-        int dataSize = 0;
-        for (int i = 0; i < javaDynamodbIgnoreFieldNames_.size(); i++) {
-          dataSize += computeStringSizeNoTag(javaDynamodbIgnoreFieldNames_.getRaw(i));
-        }
-        size += dataSize;
-        size += 1 * getJavaDynamodbIgnoreFieldNamesList().size();
-      }
       for (int i = 0; i < javaDynamodbGsiHashKeys_.size(); i++) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(5, javaDynamodbGsiHashKeys_.get(i));
+          .computeMessageSize(3, javaDynamodbGsiHashKeys_.get(i));
       }
       for (int i = 0; i < javaDynamodbGsiRangeKeys_.size(); i++) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(6, javaDynamodbGsiRangeKeys_.get(i));
+          .computeMessageSize(4, javaDynamodbGsiRangeKeys_.get(i));
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -503,8 +419,6 @@ public final class OptionsProto {
         if (getJavaDynamodbNoStrictMode()
             != other.getJavaDynamodbNoStrictMode()) return false;
       }
-      if (!getJavaDynamodbIgnoreFieldNamesList()
-          .equals(other.getJavaDynamodbIgnoreFieldNamesList())) return false;
       if (!getJavaDynamodbGsiHashKeysList()
           .equals(other.getJavaDynamodbGsiHashKeysList())) return false;
       if (!getJavaDynamodbGsiRangeKeysList()
@@ -526,10 +440,6 @@ public final class OptionsProto {
         hash = (37 * hash) + JAVA_DYNAMODB_NO_STRICT_MODE_FIELD_NUMBER;
         hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
             getJavaDynamodbNoStrictMode());
-      }
-      if (getJavaDynamodbIgnoreFieldNamesCount() > 0) {
-        hash = (37 * hash) + JAVA_DYNAMODB_IGNORE_FIELD_NAMES_FIELD_NUMBER;
-        hash = (53 * hash) + getJavaDynamodbIgnoreFieldNamesList().hashCode();
       }
       if (getJavaDynamodbGsiHashKeysCount() > 0) {
         hash = (37 * hash) + JAVA_DYNAMODB_GSI_HASH_KEYS_FIELD_NUMBER;
@@ -678,17 +588,15 @@ public final class OptionsProto {
 
         javaDynamodbNoStrictMode_ = false;
         bitField0_ = (bitField0_ & ~0x00000001);
-        javaDynamodbIgnoreFieldNames_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-        bitField0_ = (bitField0_ & ~0x00000002);
         if (javaDynamodbGsiHashKeysBuilder_ == null) {
           javaDynamodbGsiHashKeys_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000004);
+          bitField0_ = (bitField0_ & ~0x00000002);
         } else {
           javaDynamodbGsiHashKeysBuilder_.clear();
         }
         if (javaDynamodbGsiRangeKeysBuilder_ == null) {
           javaDynamodbGsiRangeKeys_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000008);
+          bitField0_ = (bitField0_ & ~0x00000004);
         } else {
           javaDynamodbGsiRangeKeysBuilder_.clear();
         }
@@ -725,24 +633,19 @@ public final class OptionsProto {
           result.javaDynamodbNoStrictMode_ = javaDynamodbNoStrictMode_;
           to_bitField0_ |= 0x00000001;
         }
-        if (((bitField0_ & 0x00000002) != 0)) {
-          javaDynamodbIgnoreFieldNames_ = javaDynamodbIgnoreFieldNames_.getUnmodifiableView();
-          bitField0_ = (bitField0_ & ~0x00000002);
-        }
-        result.javaDynamodbIgnoreFieldNames_ = javaDynamodbIgnoreFieldNames_;
         if (javaDynamodbGsiHashKeysBuilder_ == null) {
-          if (((bitField0_ & 0x00000004) != 0)) {
+          if (((bitField0_ & 0x00000002) != 0)) {
             javaDynamodbGsiHashKeys_ = java.util.Collections.unmodifiableList(javaDynamodbGsiHashKeys_);
-            bitField0_ = (bitField0_ & ~0x00000004);
+            bitField0_ = (bitField0_ & ~0x00000002);
           }
           result.javaDynamodbGsiHashKeys_ = javaDynamodbGsiHashKeys_;
         } else {
           result.javaDynamodbGsiHashKeys_ = javaDynamodbGsiHashKeysBuilder_.build();
         }
         if (javaDynamodbGsiRangeKeysBuilder_ == null) {
-          if (((bitField0_ & 0x00000008) != 0)) {
+          if (((bitField0_ & 0x00000004) != 0)) {
             javaDynamodbGsiRangeKeys_ = java.util.Collections.unmodifiableList(javaDynamodbGsiRangeKeys_);
-            bitField0_ = (bitField0_ & ~0x00000008);
+            bitField0_ = (bitField0_ & ~0x00000004);
           }
           result.javaDynamodbGsiRangeKeys_ = javaDynamodbGsiRangeKeys_;
         } else {
@@ -804,21 +707,11 @@ public final class OptionsProto {
         if (other.hasJavaDynamodbNoStrictMode()) {
           setJavaDynamodbNoStrictMode(other.getJavaDynamodbNoStrictMode());
         }
-        if (!other.javaDynamodbIgnoreFieldNames_.isEmpty()) {
-          if (javaDynamodbIgnoreFieldNames_.isEmpty()) {
-            javaDynamodbIgnoreFieldNames_ = other.javaDynamodbIgnoreFieldNames_;
-            bitField0_ = (bitField0_ & ~0x00000002);
-          } else {
-            ensureJavaDynamodbIgnoreFieldNamesIsMutable();
-            javaDynamodbIgnoreFieldNames_.addAll(other.javaDynamodbIgnoreFieldNames_);
-          }
-          onChanged();
-        }
         if (javaDynamodbGsiHashKeysBuilder_ == null) {
           if (!other.javaDynamodbGsiHashKeys_.isEmpty()) {
             if (javaDynamodbGsiHashKeys_.isEmpty()) {
               javaDynamodbGsiHashKeys_ = other.javaDynamodbGsiHashKeys_;
-              bitField0_ = (bitField0_ & ~0x00000004);
+              bitField0_ = (bitField0_ & ~0x00000002);
             } else {
               ensureJavaDynamodbGsiHashKeysIsMutable();
               javaDynamodbGsiHashKeys_.addAll(other.javaDynamodbGsiHashKeys_);
@@ -831,7 +724,7 @@ public final class OptionsProto {
               javaDynamodbGsiHashKeysBuilder_.dispose();
               javaDynamodbGsiHashKeysBuilder_ = null;
               javaDynamodbGsiHashKeys_ = other.javaDynamodbGsiHashKeys_;
-              bitField0_ = (bitField0_ & ~0x00000004);
+              bitField0_ = (bitField0_ & ~0x00000002);
               javaDynamodbGsiHashKeysBuilder_ = 
                 com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                    getJavaDynamodbGsiHashKeysFieldBuilder() : null;
@@ -844,7 +737,7 @@ public final class OptionsProto {
           if (!other.javaDynamodbGsiRangeKeys_.isEmpty()) {
             if (javaDynamodbGsiRangeKeys_.isEmpty()) {
               javaDynamodbGsiRangeKeys_ = other.javaDynamodbGsiRangeKeys_;
-              bitField0_ = (bitField0_ & ~0x00000008);
+              bitField0_ = (bitField0_ & ~0x00000004);
             } else {
               ensureJavaDynamodbGsiRangeKeysIsMutable();
               javaDynamodbGsiRangeKeys_.addAll(other.javaDynamodbGsiRangeKeys_);
@@ -857,7 +750,7 @@ public final class OptionsProto {
               javaDynamodbGsiRangeKeysBuilder_.dispose();
               javaDynamodbGsiRangeKeysBuilder_ = null;
               javaDynamodbGsiRangeKeys_ = other.javaDynamodbGsiRangeKeys_;
-              bitField0_ = (bitField0_ & ~0x00000008);
+              bitField0_ = (bitField0_ & ~0x00000004);
               javaDynamodbGsiRangeKeysBuilder_ = 
                 com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                    getJavaDynamodbGsiRangeKeysFieldBuilder() : null;
@@ -1011,122 +904,12 @@ public final class OptionsProto {
         return this;
       }
 
-      private com.google.protobuf.LazyStringList javaDynamodbIgnoreFieldNames_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      private void ensureJavaDynamodbIgnoreFieldNamesIsMutable() {
-        if (!((bitField0_ & 0x00000002) != 0)) {
-          javaDynamodbIgnoreFieldNames_ = new com.google.protobuf.LazyStringArrayList(javaDynamodbIgnoreFieldNames_);
-          bitField0_ |= 0x00000002;
-         }
-      }
-      /**
-       * <code>repeated string java_dynamodb_ignore_field_names = 4;</code>
-       * @return A list containing the javaDynamodbIgnoreFieldNames.
-       */
-      public com.google.protobuf.ProtocolStringList
-          getJavaDynamodbIgnoreFieldNamesList() {
-        return javaDynamodbIgnoreFieldNames_.getUnmodifiableView();
-      }
-      /**
-       * <code>repeated string java_dynamodb_ignore_field_names = 4;</code>
-       * @return The count of javaDynamodbIgnoreFieldNames.
-       */
-      public int getJavaDynamodbIgnoreFieldNamesCount() {
-        return javaDynamodbIgnoreFieldNames_.size();
-      }
-      /**
-       * <code>repeated string java_dynamodb_ignore_field_names = 4;</code>
-       * @param index The index of the element to return.
-       * @return The javaDynamodbIgnoreFieldNames at the given index.
-       */
-      public java.lang.String getJavaDynamodbIgnoreFieldNames(int index) {
-        return javaDynamodbIgnoreFieldNames_.get(index);
-      }
-      /**
-       * <code>repeated string java_dynamodb_ignore_field_names = 4;</code>
-       * @param index The index of the value to return.
-       * @return The bytes of the javaDynamodbIgnoreFieldNames at the given index.
-       */
-      public com.google.protobuf.ByteString
-          getJavaDynamodbIgnoreFieldNamesBytes(int index) {
-        return javaDynamodbIgnoreFieldNames_.getByteString(index);
-      }
-      /**
-       * <code>repeated string java_dynamodb_ignore_field_names = 4;</code>
-       * @param index The index to set the value at.
-       * @param value The javaDynamodbIgnoreFieldNames to set.
-       * @return This builder for chaining.
-       */
-      public Builder setJavaDynamodbIgnoreFieldNames(
-          int index, java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureJavaDynamodbIgnoreFieldNamesIsMutable();
-        javaDynamodbIgnoreFieldNames_.set(index, value);
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>repeated string java_dynamodb_ignore_field_names = 4;</code>
-       * @param value The javaDynamodbIgnoreFieldNames to add.
-       * @return This builder for chaining.
-       */
-      public Builder addJavaDynamodbIgnoreFieldNames(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureJavaDynamodbIgnoreFieldNamesIsMutable();
-        javaDynamodbIgnoreFieldNames_.add(value);
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>repeated string java_dynamodb_ignore_field_names = 4;</code>
-       * @param values The javaDynamodbIgnoreFieldNames to add.
-       * @return This builder for chaining.
-       */
-      public Builder addAllJavaDynamodbIgnoreFieldNames(
-          java.lang.Iterable<java.lang.String> values) {
-        ensureJavaDynamodbIgnoreFieldNamesIsMutable();
-        com.google.protobuf.AbstractMessageLite.Builder.addAll(
-            values, javaDynamodbIgnoreFieldNames_);
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>repeated string java_dynamodb_ignore_field_names = 4;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearJavaDynamodbIgnoreFieldNames() {
-        javaDynamodbIgnoreFieldNames_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-        bitField0_ = (bitField0_ & ~0x00000002);
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>repeated string java_dynamodb_ignore_field_names = 4;</code>
-       * @param value The bytes of the javaDynamodbIgnoreFieldNames to add.
-       * @return This builder for chaining.
-       */
-      public Builder addJavaDynamodbIgnoreFieldNamesBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        ensureJavaDynamodbIgnoreFieldNamesIsMutable();
-        javaDynamodbIgnoreFieldNames_.add(value);
-        onChanged();
-        return this;
-      }
-
       private java.util.List<net.moznion.protoc.plugin.dynamodb.OptionsProto.DynamoDBIndexKey> javaDynamodbGsiHashKeys_ =
         java.util.Collections.emptyList();
       private void ensureJavaDynamodbGsiHashKeysIsMutable() {
-        if (!((bitField0_ & 0x00000004) != 0)) {
+        if (!((bitField0_ & 0x00000002) != 0)) {
           javaDynamodbGsiHashKeys_ = new java.util.ArrayList<net.moznion.protoc.plugin.dynamodb.OptionsProto.DynamoDBIndexKey>(javaDynamodbGsiHashKeys_);
-          bitField0_ |= 0x00000004;
+          bitField0_ |= 0x00000002;
          }
       }
 
@@ -1134,7 +917,7 @@ public final class OptionsProto {
           net.moznion.protoc.plugin.dynamodb.OptionsProto.DynamoDBIndexKey, net.moznion.protoc.plugin.dynamodb.OptionsProto.DynamoDBIndexKey.Builder, net.moznion.protoc.plugin.dynamodb.OptionsProto.DynamoDBIndexKeyOrBuilder> javaDynamodbGsiHashKeysBuilder_;
 
       /**
-       * <code>repeated .net.moznion.protoc.plugin.dynamodb.DynamoDBIndexKey java_dynamodb_gsi_hash_keys = 5;</code>
+       * <code>repeated .net.moznion.protoc.plugin.dynamodb.DynamoDBIndexKey java_dynamodb_gsi_hash_keys = 3;</code>
        */
       public java.util.List<net.moznion.protoc.plugin.dynamodb.OptionsProto.DynamoDBIndexKey> getJavaDynamodbGsiHashKeysList() {
         if (javaDynamodbGsiHashKeysBuilder_ == null) {
@@ -1144,7 +927,7 @@ public final class OptionsProto {
         }
       }
       /**
-       * <code>repeated .net.moznion.protoc.plugin.dynamodb.DynamoDBIndexKey java_dynamodb_gsi_hash_keys = 5;</code>
+       * <code>repeated .net.moznion.protoc.plugin.dynamodb.DynamoDBIndexKey java_dynamodb_gsi_hash_keys = 3;</code>
        */
       public int getJavaDynamodbGsiHashKeysCount() {
         if (javaDynamodbGsiHashKeysBuilder_ == null) {
@@ -1154,7 +937,7 @@ public final class OptionsProto {
         }
       }
       /**
-       * <code>repeated .net.moznion.protoc.plugin.dynamodb.DynamoDBIndexKey java_dynamodb_gsi_hash_keys = 5;</code>
+       * <code>repeated .net.moznion.protoc.plugin.dynamodb.DynamoDBIndexKey java_dynamodb_gsi_hash_keys = 3;</code>
        */
       public net.moznion.protoc.plugin.dynamodb.OptionsProto.DynamoDBIndexKey getJavaDynamodbGsiHashKeys(int index) {
         if (javaDynamodbGsiHashKeysBuilder_ == null) {
@@ -1164,7 +947,7 @@ public final class OptionsProto {
         }
       }
       /**
-       * <code>repeated .net.moznion.protoc.plugin.dynamodb.DynamoDBIndexKey java_dynamodb_gsi_hash_keys = 5;</code>
+       * <code>repeated .net.moznion.protoc.plugin.dynamodb.DynamoDBIndexKey java_dynamodb_gsi_hash_keys = 3;</code>
        */
       public Builder setJavaDynamodbGsiHashKeys(
           int index, net.moznion.protoc.plugin.dynamodb.OptionsProto.DynamoDBIndexKey value) {
@@ -1181,7 +964,7 @@ public final class OptionsProto {
         return this;
       }
       /**
-       * <code>repeated .net.moznion.protoc.plugin.dynamodb.DynamoDBIndexKey java_dynamodb_gsi_hash_keys = 5;</code>
+       * <code>repeated .net.moznion.protoc.plugin.dynamodb.DynamoDBIndexKey java_dynamodb_gsi_hash_keys = 3;</code>
        */
       public Builder setJavaDynamodbGsiHashKeys(
           int index, net.moznion.protoc.plugin.dynamodb.OptionsProto.DynamoDBIndexKey.Builder builderForValue) {
@@ -1195,7 +978,7 @@ public final class OptionsProto {
         return this;
       }
       /**
-       * <code>repeated .net.moznion.protoc.plugin.dynamodb.DynamoDBIndexKey java_dynamodb_gsi_hash_keys = 5;</code>
+       * <code>repeated .net.moznion.protoc.plugin.dynamodb.DynamoDBIndexKey java_dynamodb_gsi_hash_keys = 3;</code>
        */
       public Builder addJavaDynamodbGsiHashKeys(net.moznion.protoc.plugin.dynamodb.OptionsProto.DynamoDBIndexKey value) {
         if (javaDynamodbGsiHashKeysBuilder_ == null) {
@@ -1211,7 +994,7 @@ public final class OptionsProto {
         return this;
       }
       /**
-       * <code>repeated .net.moznion.protoc.plugin.dynamodb.DynamoDBIndexKey java_dynamodb_gsi_hash_keys = 5;</code>
+       * <code>repeated .net.moznion.protoc.plugin.dynamodb.DynamoDBIndexKey java_dynamodb_gsi_hash_keys = 3;</code>
        */
       public Builder addJavaDynamodbGsiHashKeys(
           int index, net.moznion.protoc.plugin.dynamodb.OptionsProto.DynamoDBIndexKey value) {
@@ -1228,7 +1011,7 @@ public final class OptionsProto {
         return this;
       }
       /**
-       * <code>repeated .net.moznion.protoc.plugin.dynamodb.DynamoDBIndexKey java_dynamodb_gsi_hash_keys = 5;</code>
+       * <code>repeated .net.moznion.protoc.plugin.dynamodb.DynamoDBIndexKey java_dynamodb_gsi_hash_keys = 3;</code>
        */
       public Builder addJavaDynamodbGsiHashKeys(
           net.moznion.protoc.plugin.dynamodb.OptionsProto.DynamoDBIndexKey.Builder builderForValue) {
@@ -1242,7 +1025,7 @@ public final class OptionsProto {
         return this;
       }
       /**
-       * <code>repeated .net.moznion.protoc.plugin.dynamodb.DynamoDBIndexKey java_dynamodb_gsi_hash_keys = 5;</code>
+       * <code>repeated .net.moznion.protoc.plugin.dynamodb.DynamoDBIndexKey java_dynamodb_gsi_hash_keys = 3;</code>
        */
       public Builder addJavaDynamodbGsiHashKeys(
           int index, net.moznion.protoc.plugin.dynamodb.OptionsProto.DynamoDBIndexKey.Builder builderForValue) {
@@ -1256,7 +1039,7 @@ public final class OptionsProto {
         return this;
       }
       /**
-       * <code>repeated .net.moznion.protoc.plugin.dynamodb.DynamoDBIndexKey java_dynamodb_gsi_hash_keys = 5;</code>
+       * <code>repeated .net.moznion.protoc.plugin.dynamodb.DynamoDBIndexKey java_dynamodb_gsi_hash_keys = 3;</code>
        */
       public Builder addAllJavaDynamodbGsiHashKeys(
           java.lang.Iterable<? extends net.moznion.protoc.plugin.dynamodb.OptionsProto.DynamoDBIndexKey> values) {
@@ -1271,12 +1054,12 @@ public final class OptionsProto {
         return this;
       }
       /**
-       * <code>repeated .net.moznion.protoc.plugin.dynamodb.DynamoDBIndexKey java_dynamodb_gsi_hash_keys = 5;</code>
+       * <code>repeated .net.moznion.protoc.plugin.dynamodb.DynamoDBIndexKey java_dynamodb_gsi_hash_keys = 3;</code>
        */
       public Builder clearJavaDynamodbGsiHashKeys() {
         if (javaDynamodbGsiHashKeysBuilder_ == null) {
           javaDynamodbGsiHashKeys_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000004);
+          bitField0_ = (bitField0_ & ~0x00000002);
           onChanged();
         } else {
           javaDynamodbGsiHashKeysBuilder_.clear();
@@ -1284,7 +1067,7 @@ public final class OptionsProto {
         return this;
       }
       /**
-       * <code>repeated .net.moznion.protoc.plugin.dynamodb.DynamoDBIndexKey java_dynamodb_gsi_hash_keys = 5;</code>
+       * <code>repeated .net.moznion.protoc.plugin.dynamodb.DynamoDBIndexKey java_dynamodb_gsi_hash_keys = 3;</code>
        */
       public Builder removeJavaDynamodbGsiHashKeys(int index) {
         if (javaDynamodbGsiHashKeysBuilder_ == null) {
@@ -1297,14 +1080,14 @@ public final class OptionsProto {
         return this;
       }
       /**
-       * <code>repeated .net.moznion.protoc.plugin.dynamodb.DynamoDBIndexKey java_dynamodb_gsi_hash_keys = 5;</code>
+       * <code>repeated .net.moznion.protoc.plugin.dynamodb.DynamoDBIndexKey java_dynamodb_gsi_hash_keys = 3;</code>
        */
       public net.moznion.protoc.plugin.dynamodb.OptionsProto.DynamoDBIndexKey.Builder getJavaDynamodbGsiHashKeysBuilder(
           int index) {
         return getJavaDynamodbGsiHashKeysFieldBuilder().getBuilder(index);
       }
       /**
-       * <code>repeated .net.moznion.protoc.plugin.dynamodb.DynamoDBIndexKey java_dynamodb_gsi_hash_keys = 5;</code>
+       * <code>repeated .net.moznion.protoc.plugin.dynamodb.DynamoDBIndexKey java_dynamodb_gsi_hash_keys = 3;</code>
        */
       public net.moznion.protoc.plugin.dynamodb.OptionsProto.DynamoDBIndexKeyOrBuilder getJavaDynamodbGsiHashKeysOrBuilder(
           int index) {
@@ -1314,7 +1097,7 @@ public final class OptionsProto {
         }
       }
       /**
-       * <code>repeated .net.moznion.protoc.plugin.dynamodb.DynamoDBIndexKey java_dynamodb_gsi_hash_keys = 5;</code>
+       * <code>repeated .net.moznion.protoc.plugin.dynamodb.DynamoDBIndexKey java_dynamodb_gsi_hash_keys = 3;</code>
        */
       public java.util.List<? extends net.moznion.protoc.plugin.dynamodb.OptionsProto.DynamoDBIndexKeyOrBuilder> 
            getJavaDynamodbGsiHashKeysOrBuilderList() {
@@ -1325,14 +1108,14 @@ public final class OptionsProto {
         }
       }
       /**
-       * <code>repeated .net.moznion.protoc.plugin.dynamodb.DynamoDBIndexKey java_dynamodb_gsi_hash_keys = 5;</code>
+       * <code>repeated .net.moznion.protoc.plugin.dynamodb.DynamoDBIndexKey java_dynamodb_gsi_hash_keys = 3;</code>
        */
       public net.moznion.protoc.plugin.dynamodb.OptionsProto.DynamoDBIndexKey.Builder addJavaDynamodbGsiHashKeysBuilder() {
         return getJavaDynamodbGsiHashKeysFieldBuilder().addBuilder(
             net.moznion.protoc.plugin.dynamodb.OptionsProto.DynamoDBIndexKey.getDefaultInstance());
       }
       /**
-       * <code>repeated .net.moznion.protoc.plugin.dynamodb.DynamoDBIndexKey java_dynamodb_gsi_hash_keys = 5;</code>
+       * <code>repeated .net.moznion.protoc.plugin.dynamodb.DynamoDBIndexKey java_dynamodb_gsi_hash_keys = 3;</code>
        */
       public net.moznion.protoc.plugin.dynamodb.OptionsProto.DynamoDBIndexKey.Builder addJavaDynamodbGsiHashKeysBuilder(
           int index) {
@@ -1340,7 +1123,7 @@ public final class OptionsProto {
             index, net.moznion.protoc.plugin.dynamodb.OptionsProto.DynamoDBIndexKey.getDefaultInstance());
       }
       /**
-       * <code>repeated .net.moznion.protoc.plugin.dynamodb.DynamoDBIndexKey java_dynamodb_gsi_hash_keys = 5;</code>
+       * <code>repeated .net.moznion.protoc.plugin.dynamodb.DynamoDBIndexKey java_dynamodb_gsi_hash_keys = 3;</code>
        */
       public java.util.List<net.moznion.protoc.plugin.dynamodb.OptionsProto.DynamoDBIndexKey.Builder> 
            getJavaDynamodbGsiHashKeysBuilderList() {
@@ -1353,7 +1136,7 @@ public final class OptionsProto {
           javaDynamodbGsiHashKeysBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
               net.moznion.protoc.plugin.dynamodb.OptionsProto.DynamoDBIndexKey, net.moznion.protoc.plugin.dynamodb.OptionsProto.DynamoDBIndexKey.Builder, net.moznion.protoc.plugin.dynamodb.OptionsProto.DynamoDBIndexKeyOrBuilder>(
                   javaDynamodbGsiHashKeys_,
-                  ((bitField0_ & 0x00000004) != 0),
+                  ((bitField0_ & 0x00000002) != 0),
                   getParentForChildren(),
                   isClean());
           javaDynamodbGsiHashKeys_ = null;
@@ -1364,9 +1147,9 @@ public final class OptionsProto {
       private java.util.List<net.moznion.protoc.plugin.dynamodb.OptionsProto.DynamoDBIndexKey> javaDynamodbGsiRangeKeys_ =
         java.util.Collections.emptyList();
       private void ensureJavaDynamodbGsiRangeKeysIsMutable() {
-        if (!((bitField0_ & 0x00000008) != 0)) {
+        if (!((bitField0_ & 0x00000004) != 0)) {
           javaDynamodbGsiRangeKeys_ = new java.util.ArrayList<net.moznion.protoc.plugin.dynamodb.OptionsProto.DynamoDBIndexKey>(javaDynamodbGsiRangeKeys_);
-          bitField0_ |= 0x00000008;
+          bitField0_ |= 0x00000004;
          }
       }
 
@@ -1374,7 +1157,7 @@ public final class OptionsProto {
           net.moznion.protoc.plugin.dynamodb.OptionsProto.DynamoDBIndexKey, net.moznion.protoc.plugin.dynamodb.OptionsProto.DynamoDBIndexKey.Builder, net.moznion.protoc.plugin.dynamodb.OptionsProto.DynamoDBIndexKeyOrBuilder> javaDynamodbGsiRangeKeysBuilder_;
 
       /**
-       * <code>repeated .net.moznion.protoc.plugin.dynamodb.DynamoDBIndexKey java_dynamodb_gsi_range_keys = 6;</code>
+       * <code>repeated .net.moznion.protoc.plugin.dynamodb.DynamoDBIndexKey java_dynamodb_gsi_range_keys = 4;</code>
        */
       public java.util.List<net.moznion.protoc.plugin.dynamodb.OptionsProto.DynamoDBIndexKey> getJavaDynamodbGsiRangeKeysList() {
         if (javaDynamodbGsiRangeKeysBuilder_ == null) {
@@ -1384,7 +1167,7 @@ public final class OptionsProto {
         }
       }
       /**
-       * <code>repeated .net.moznion.protoc.plugin.dynamodb.DynamoDBIndexKey java_dynamodb_gsi_range_keys = 6;</code>
+       * <code>repeated .net.moznion.protoc.plugin.dynamodb.DynamoDBIndexKey java_dynamodb_gsi_range_keys = 4;</code>
        */
       public int getJavaDynamodbGsiRangeKeysCount() {
         if (javaDynamodbGsiRangeKeysBuilder_ == null) {
@@ -1394,7 +1177,7 @@ public final class OptionsProto {
         }
       }
       /**
-       * <code>repeated .net.moznion.protoc.plugin.dynamodb.DynamoDBIndexKey java_dynamodb_gsi_range_keys = 6;</code>
+       * <code>repeated .net.moznion.protoc.plugin.dynamodb.DynamoDBIndexKey java_dynamodb_gsi_range_keys = 4;</code>
        */
       public net.moznion.protoc.plugin.dynamodb.OptionsProto.DynamoDBIndexKey getJavaDynamodbGsiRangeKeys(int index) {
         if (javaDynamodbGsiRangeKeysBuilder_ == null) {
@@ -1404,7 +1187,7 @@ public final class OptionsProto {
         }
       }
       /**
-       * <code>repeated .net.moznion.protoc.plugin.dynamodb.DynamoDBIndexKey java_dynamodb_gsi_range_keys = 6;</code>
+       * <code>repeated .net.moznion.protoc.plugin.dynamodb.DynamoDBIndexKey java_dynamodb_gsi_range_keys = 4;</code>
        */
       public Builder setJavaDynamodbGsiRangeKeys(
           int index, net.moznion.protoc.plugin.dynamodb.OptionsProto.DynamoDBIndexKey value) {
@@ -1421,7 +1204,7 @@ public final class OptionsProto {
         return this;
       }
       /**
-       * <code>repeated .net.moznion.protoc.plugin.dynamodb.DynamoDBIndexKey java_dynamodb_gsi_range_keys = 6;</code>
+       * <code>repeated .net.moznion.protoc.plugin.dynamodb.DynamoDBIndexKey java_dynamodb_gsi_range_keys = 4;</code>
        */
       public Builder setJavaDynamodbGsiRangeKeys(
           int index, net.moznion.protoc.plugin.dynamodb.OptionsProto.DynamoDBIndexKey.Builder builderForValue) {
@@ -1435,7 +1218,7 @@ public final class OptionsProto {
         return this;
       }
       /**
-       * <code>repeated .net.moznion.protoc.plugin.dynamodb.DynamoDBIndexKey java_dynamodb_gsi_range_keys = 6;</code>
+       * <code>repeated .net.moznion.protoc.plugin.dynamodb.DynamoDBIndexKey java_dynamodb_gsi_range_keys = 4;</code>
        */
       public Builder addJavaDynamodbGsiRangeKeys(net.moznion.protoc.plugin.dynamodb.OptionsProto.DynamoDBIndexKey value) {
         if (javaDynamodbGsiRangeKeysBuilder_ == null) {
@@ -1451,7 +1234,7 @@ public final class OptionsProto {
         return this;
       }
       /**
-       * <code>repeated .net.moznion.protoc.plugin.dynamodb.DynamoDBIndexKey java_dynamodb_gsi_range_keys = 6;</code>
+       * <code>repeated .net.moznion.protoc.plugin.dynamodb.DynamoDBIndexKey java_dynamodb_gsi_range_keys = 4;</code>
        */
       public Builder addJavaDynamodbGsiRangeKeys(
           int index, net.moznion.protoc.plugin.dynamodb.OptionsProto.DynamoDBIndexKey value) {
@@ -1468,7 +1251,7 @@ public final class OptionsProto {
         return this;
       }
       /**
-       * <code>repeated .net.moznion.protoc.plugin.dynamodb.DynamoDBIndexKey java_dynamodb_gsi_range_keys = 6;</code>
+       * <code>repeated .net.moznion.protoc.plugin.dynamodb.DynamoDBIndexKey java_dynamodb_gsi_range_keys = 4;</code>
        */
       public Builder addJavaDynamodbGsiRangeKeys(
           net.moznion.protoc.plugin.dynamodb.OptionsProto.DynamoDBIndexKey.Builder builderForValue) {
@@ -1482,7 +1265,7 @@ public final class OptionsProto {
         return this;
       }
       /**
-       * <code>repeated .net.moznion.protoc.plugin.dynamodb.DynamoDBIndexKey java_dynamodb_gsi_range_keys = 6;</code>
+       * <code>repeated .net.moznion.protoc.plugin.dynamodb.DynamoDBIndexKey java_dynamodb_gsi_range_keys = 4;</code>
        */
       public Builder addJavaDynamodbGsiRangeKeys(
           int index, net.moznion.protoc.plugin.dynamodb.OptionsProto.DynamoDBIndexKey.Builder builderForValue) {
@@ -1496,7 +1279,7 @@ public final class OptionsProto {
         return this;
       }
       /**
-       * <code>repeated .net.moznion.protoc.plugin.dynamodb.DynamoDBIndexKey java_dynamodb_gsi_range_keys = 6;</code>
+       * <code>repeated .net.moznion.protoc.plugin.dynamodb.DynamoDBIndexKey java_dynamodb_gsi_range_keys = 4;</code>
        */
       public Builder addAllJavaDynamodbGsiRangeKeys(
           java.lang.Iterable<? extends net.moznion.protoc.plugin.dynamodb.OptionsProto.DynamoDBIndexKey> values) {
@@ -1511,12 +1294,12 @@ public final class OptionsProto {
         return this;
       }
       /**
-       * <code>repeated .net.moznion.protoc.plugin.dynamodb.DynamoDBIndexKey java_dynamodb_gsi_range_keys = 6;</code>
+       * <code>repeated .net.moznion.protoc.plugin.dynamodb.DynamoDBIndexKey java_dynamodb_gsi_range_keys = 4;</code>
        */
       public Builder clearJavaDynamodbGsiRangeKeys() {
         if (javaDynamodbGsiRangeKeysBuilder_ == null) {
           javaDynamodbGsiRangeKeys_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000008);
+          bitField0_ = (bitField0_ & ~0x00000004);
           onChanged();
         } else {
           javaDynamodbGsiRangeKeysBuilder_.clear();
@@ -1524,7 +1307,7 @@ public final class OptionsProto {
         return this;
       }
       /**
-       * <code>repeated .net.moznion.protoc.plugin.dynamodb.DynamoDBIndexKey java_dynamodb_gsi_range_keys = 6;</code>
+       * <code>repeated .net.moznion.protoc.plugin.dynamodb.DynamoDBIndexKey java_dynamodb_gsi_range_keys = 4;</code>
        */
       public Builder removeJavaDynamodbGsiRangeKeys(int index) {
         if (javaDynamodbGsiRangeKeysBuilder_ == null) {
@@ -1537,14 +1320,14 @@ public final class OptionsProto {
         return this;
       }
       /**
-       * <code>repeated .net.moznion.protoc.plugin.dynamodb.DynamoDBIndexKey java_dynamodb_gsi_range_keys = 6;</code>
+       * <code>repeated .net.moznion.protoc.plugin.dynamodb.DynamoDBIndexKey java_dynamodb_gsi_range_keys = 4;</code>
        */
       public net.moznion.protoc.plugin.dynamodb.OptionsProto.DynamoDBIndexKey.Builder getJavaDynamodbGsiRangeKeysBuilder(
           int index) {
         return getJavaDynamodbGsiRangeKeysFieldBuilder().getBuilder(index);
       }
       /**
-       * <code>repeated .net.moznion.protoc.plugin.dynamodb.DynamoDBIndexKey java_dynamodb_gsi_range_keys = 6;</code>
+       * <code>repeated .net.moznion.protoc.plugin.dynamodb.DynamoDBIndexKey java_dynamodb_gsi_range_keys = 4;</code>
        */
       public net.moznion.protoc.plugin.dynamodb.OptionsProto.DynamoDBIndexKeyOrBuilder getJavaDynamodbGsiRangeKeysOrBuilder(
           int index) {
@@ -1554,7 +1337,7 @@ public final class OptionsProto {
         }
       }
       /**
-       * <code>repeated .net.moznion.protoc.plugin.dynamodb.DynamoDBIndexKey java_dynamodb_gsi_range_keys = 6;</code>
+       * <code>repeated .net.moznion.protoc.plugin.dynamodb.DynamoDBIndexKey java_dynamodb_gsi_range_keys = 4;</code>
        */
       public java.util.List<? extends net.moznion.protoc.plugin.dynamodb.OptionsProto.DynamoDBIndexKeyOrBuilder> 
            getJavaDynamodbGsiRangeKeysOrBuilderList() {
@@ -1565,14 +1348,14 @@ public final class OptionsProto {
         }
       }
       /**
-       * <code>repeated .net.moznion.protoc.plugin.dynamodb.DynamoDBIndexKey java_dynamodb_gsi_range_keys = 6;</code>
+       * <code>repeated .net.moznion.protoc.plugin.dynamodb.DynamoDBIndexKey java_dynamodb_gsi_range_keys = 4;</code>
        */
       public net.moznion.protoc.plugin.dynamodb.OptionsProto.DynamoDBIndexKey.Builder addJavaDynamodbGsiRangeKeysBuilder() {
         return getJavaDynamodbGsiRangeKeysFieldBuilder().addBuilder(
             net.moznion.protoc.plugin.dynamodb.OptionsProto.DynamoDBIndexKey.getDefaultInstance());
       }
       /**
-       * <code>repeated .net.moznion.protoc.plugin.dynamodb.DynamoDBIndexKey java_dynamodb_gsi_range_keys = 6;</code>
+       * <code>repeated .net.moznion.protoc.plugin.dynamodb.DynamoDBIndexKey java_dynamodb_gsi_range_keys = 4;</code>
        */
       public net.moznion.protoc.plugin.dynamodb.OptionsProto.DynamoDBIndexKey.Builder addJavaDynamodbGsiRangeKeysBuilder(
           int index) {
@@ -1580,7 +1363,7 @@ public final class OptionsProto {
             index, net.moznion.protoc.plugin.dynamodb.OptionsProto.DynamoDBIndexKey.getDefaultInstance());
       }
       /**
-       * <code>repeated .net.moznion.protoc.plugin.dynamodb.DynamoDBIndexKey java_dynamodb_gsi_range_keys = 6;</code>
+       * <code>repeated .net.moznion.protoc.plugin.dynamodb.DynamoDBIndexKey java_dynamodb_gsi_range_keys = 4;</code>
        */
       public java.util.List<net.moznion.protoc.plugin.dynamodb.OptionsProto.DynamoDBIndexKey.Builder> 
            getJavaDynamodbGsiRangeKeysBuilderList() {
@@ -1593,7 +1376,7 @@ public final class OptionsProto {
           javaDynamodbGsiRangeKeysBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
               net.moznion.protoc.plugin.dynamodb.OptionsProto.DynamoDBIndexKey, net.moznion.protoc.plugin.dynamodb.OptionsProto.DynamoDBIndexKey.Builder, net.moznion.protoc.plugin.dynamodb.OptionsProto.DynamoDBIndexKeyOrBuilder>(
                   javaDynamodbGsiRangeKeys_,
-                  ((bitField0_ & 0x00000008) != 0),
+                  ((bitField0_ & 0x00000004) != 0),
                   getParentForChildren(),
                   isClean());
           javaDynamodbGsiRangeKeys_ = null;
@@ -1668,6 +1451,12 @@ public final class OptionsProto {
      * @return The javaDynamodbRangeKey.
      */
     boolean getJavaDynamodbRangeKey();
+
+    /**
+     * <code>bool java_dynamodb_ignore = 3;</code>
+     * @return The javaDynamodbIgnore.
+     */
+    boolean getJavaDynamodbIgnore();
   }
   /**
    * Protobuf type {@code net.moznion.protoc.plugin.dynamodb.FieldOptions}
@@ -1722,6 +1511,11 @@ public final class OptionsProto {
             case 16: {
 
               javaDynamodbRangeKey_ = input.readBool();
+              break;
+            }
+            case 24: {
+
+              javaDynamodbIgnore_ = input.readBool();
               break;
             }
             default: {
@@ -1780,6 +1574,17 @@ public final class OptionsProto {
       return javaDynamodbRangeKey_;
     }
 
+    public static final int JAVA_DYNAMODB_IGNORE_FIELD_NUMBER = 3;
+    private boolean javaDynamodbIgnore_;
+    /**
+     * <code>bool java_dynamodb_ignore = 3;</code>
+     * @return The javaDynamodbIgnore.
+     */
+    @java.lang.Override
+    public boolean getJavaDynamodbIgnore() {
+      return javaDynamodbIgnore_;
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -1800,6 +1605,9 @@ public final class OptionsProto {
       if (javaDynamodbRangeKey_ != false) {
         output.writeBool(2, javaDynamodbRangeKey_);
       }
+      if (javaDynamodbIgnore_ != false) {
+        output.writeBool(3, javaDynamodbIgnore_);
+      }
       unknownFields.writeTo(output);
     }
 
@@ -1816,6 +1624,10 @@ public final class OptionsProto {
       if (javaDynamodbRangeKey_ != false) {
         size += com.google.protobuf.CodedOutputStream
           .computeBoolSize(2, javaDynamodbRangeKey_);
+      }
+      if (javaDynamodbIgnore_ != false) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBoolSize(3, javaDynamodbIgnore_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -1836,6 +1648,8 @@ public final class OptionsProto {
           != other.getJavaDynamodbHashKey()) return false;
       if (getJavaDynamodbRangeKey()
           != other.getJavaDynamodbRangeKey()) return false;
+      if (getJavaDynamodbIgnore()
+          != other.getJavaDynamodbIgnore()) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -1853,6 +1667,9 @@ public final class OptionsProto {
       hash = (37 * hash) + JAVA_DYNAMODB_RANGE_KEY_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
           getJavaDynamodbRangeKey());
+      hash = (37 * hash) + JAVA_DYNAMODB_IGNORE_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+          getJavaDynamodbIgnore());
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -1990,6 +1807,8 @@ public final class OptionsProto {
 
         javaDynamodbRangeKey_ = false;
 
+        javaDynamodbIgnore_ = false;
+
         return this;
       }
 
@@ -2018,6 +1837,7 @@ public final class OptionsProto {
         net.moznion.protoc.plugin.dynamodb.OptionsProto.FieldOptions result = new net.moznion.protoc.plugin.dynamodb.OptionsProto.FieldOptions(this);
         result.javaDynamodbHashKey_ = javaDynamodbHashKey_;
         result.javaDynamodbRangeKey_ = javaDynamodbRangeKey_;
+        result.javaDynamodbIgnore_ = javaDynamodbIgnore_;
         onBuilt();
         return result;
       }
@@ -2071,6 +1891,9 @@ public final class OptionsProto {
         }
         if (other.getJavaDynamodbRangeKey() != false) {
           setJavaDynamodbRangeKey(other.getJavaDynamodbRangeKey());
+        }
+        if (other.getJavaDynamodbIgnore() != false) {
+          setJavaDynamodbIgnore(other.getJavaDynamodbIgnore());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -2159,6 +1982,37 @@ public final class OptionsProto {
       public Builder clearJavaDynamodbRangeKey() {
         
         javaDynamodbRangeKey_ = false;
+        onChanged();
+        return this;
+      }
+
+      private boolean javaDynamodbIgnore_ ;
+      /**
+       * <code>bool java_dynamodb_ignore = 3;</code>
+       * @return The javaDynamodbIgnore.
+       */
+      @java.lang.Override
+      public boolean getJavaDynamodbIgnore() {
+        return javaDynamodbIgnore_;
+      }
+      /**
+       * <code>bool java_dynamodb_ignore = 3;</code>
+       * @param value The javaDynamodbIgnore to set.
+       * @return This builder for chaining.
+       */
+      public Builder setJavaDynamodbIgnore(boolean value) {
+        
+        javaDynamodbIgnore_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>bool java_dynamodb_ignore = 3;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearJavaDynamodbIgnore() {
+        
+        javaDynamodbIgnore_ = false;
         onChanged();
         return this;
       }
@@ -3061,26 +2915,25 @@ public final class OptionsProto {
     java.lang.String[] descriptorData = {
       "\n\024protos/options.proto\022\"net.moznion.prot" +
       "oc.plugin.dynamodb\032 google/protobuf/desc" +
-      "riptor.proto\"\334\002\n\013FileOptions\022 \n\030java_dyn" +
+      "riptor.proto\"\262\002\n\013FileOptions\022 \n\030java_dyn" +
       "amodb_table_name\030\001 \001(\t\022)\n\034java_dynamodb_" +
-      "no_strict_mode\030\002 \001(\010H\000\210\001\001\022(\n java_dynamo" +
-      "db_ignore_field_names\030\004 \003(\t\022Y\n\033java_dyna" +
-      "modb_gsi_hash_keys\030\005 \003(\01324.net.moznion.p" +
-      "rotoc.plugin.dynamodb.DynamoDBIndexKey\022Z" +
-      "\n\034java_dynamodb_gsi_range_keys\030\006 \003(\01324.n" +
-      "et.moznion.protoc.plugin.dynamodb.Dynamo" +
-      "DBIndexKeyB\037\n\035_java_dynamodb_no_strict_m" +
-      "ode\"O\n\014FieldOptions\022\036\n\026java_dynamodb_has" +
-      "h_key\030\001 \001(\010\022\037\n\027java_dynamodb_range_key\030\002" +
-      " \001(\010\";\n\020DynamoDBIndexKey\022\022\n\nfield_name\030\001" +
-      " \001(\t\022\023\n\013index_names\030\002 \003(\t:`\n\007fileopt\022\034.g" +
-      "oogle.protobuf.FileOptions\030\320\206\003 \001(\0132/.net" +
-      ".moznion.protoc.plugin.dynamodb.FileOpti" +
-      "ons:c\n\010fieldopt\022\035.google.protobuf.FieldO" +
-      "ptions\030\321\206\003 \001(\01320.net.moznion.protoc.plug" +
-      "in.dynamodb.FieldOptionsB2\n\"net.moznion." +
-      "protoc.plugin.dynamodbB\014OptionsProtob\006pr" +
-      "oto3"
+      "no_strict_mode\030\002 \001(\010H\000\210\001\001\022Y\n\033java_dynamo" +
+      "db_gsi_hash_keys\030\003 \003(\01324.net.moznion.pro" +
+      "toc.plugin.dynamodb.DynamoDBIndexKey\022Z\n\034" +
+      "java_dynamodb_gsi_range_keys\030\004 \003(\01324.net" +
+      ".moznion.protoc.plugin.dynamodb.DynamoDB" +
+      "IndexKeyB\037\n\035_java_dynamodb_no_strict_mod" +
+      "e\"m\n\014FieldOptions\022\036\n\026java_dynamodb_hash_" +
+      "key\030\001 \001(\010\022\037\n\027java_dynamodb_range_key\030\002 \001" +
+      "(\010\022\034\n\024java_dynamodb_ignore\030\003 \001(\010\";\n\020Dyna" +
+      "moDBIndexKey\022\022\n\nfield_name\030\001 \001(\t\022\023\n\013inde" +
+      "x_names\030\002 \003(\t:`\n\007fileopt\022\034.google.protob" +
+      "uf.FileOptions\030\320\206\003 \001(\0132/.net.moznion.pro" +
+      "toc.plugin.dynamodb.FileOptions:c\n\010field" +
+      "opt\022\035.google.protobuf.FieldOptions\030\321\206\003 \001" +
+      "(\01320.net.moznion.protoc.plugin.dynamodb." +
+      "FieldOptionsB2\n\"net.moznion.protoc.plugi" +
+      "n.dynamodbB\014OptionsProtob\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -3092,13 +2945,13 @@ public final class OptionsProto {
     internal_static_net_moznion_protoc_plugin_dynamodb_FileOptions_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_net_moznion_protoc_plugin_dynamodb_FileOptions_descriptor,
-        new java.lang.String[] { "JavaDynamodbTableName", "JavaDynamodbNoStrictMode", "JavaDynamodbIgnoreFieldNames", "JavaDynamodbGsiHashKeys", "JavaDynamodbGsiRangeKeys", "JavaDynamodbNoStrictMode", });
+        new java.lang.String[] { "JavaDynamodbTableName", "JavaDynamodbNoStrictMode", "JavaDynamodbGsiHashKeys", "JavaDynamodbGsiRangeKeys", "JavaDynamodbNoStrictMode", });
     internal_static_net_moznion_protoc_plugin_dynamodb_FieldOptions_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_net_moznion_protoc_plugin_dynamodb_FieldOptions_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_net_moznion_protoc_plugin_dynamodb_FieldOptions_descriptor,
-        new java.lang.String[] { "JavaDynamodbHashKey", "JavaDynamodbRangeKey", });
+        new java.lang.String[] { "JavaDynamodbHashKey", "JavaDynamodbRangeKey", "JavaDynamodbIgnore", });
     internal_static_net_moznion_protoc_plugin_dynamodb_DynamoDBIndexKey_descriptor =
       getDescriptor().getMessageTypes().get(2);
     internal_static_net_moznion_protoc_plugin_dynamodb_DynamoDBIndexKey_fieldAccessorTable = new
