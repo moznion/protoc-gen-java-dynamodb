@@ -81,8 +81,7 @@ public class App extends Generator {
 		final CodeGeneratorRequest request;
 		try {
 			final ExtensionRegistry registry = ExtensionRegistry.newInstance();
-			registry.add(OptionsProto.fileopt);
-			registry.add(OptionsProto.fieldopt);
+			OptionsProto.registerAllExtensions(registry);
 			request = CodeGeneratorRequest.parseFrom(originalRequest.toByteArray(), registry);
 		} catch (InvalidProtocolBufferException e) {
 			throw new RuntimeException(e);
