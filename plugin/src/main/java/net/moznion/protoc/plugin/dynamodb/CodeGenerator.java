@@ -40,7 +40,7 @@ class CodeGenerator {
 		final String fileName,
 		final String protoPackage,
 		final String javaPackage,
-		final Options opts
+		final FileOptions opts
 	) {
 		final DynamodbAttributeFields fields = new DynamodbAttributeFields(
 			messageDescriptor.getFieldList()
@@ -50,7 +50,7 @@ class CodeGenerator {
 							 .collect(Collectors.toList())
 		).validate();
 
-		final String dynamodbInnerClassName = "DynamoDBEntity"; // TODO
+		final String dynamodbInnerClassName = new DynamodbEntityClassNameProvider(opts).getDynamodbEntityClassName();
 
 		final String javaPackagePath =
 			javaPackage.isEmpty() ? "" : javaPackage.replace(".", DIR_SEPARATOR) + DIR_SEPARATOR;

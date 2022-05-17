@@ -45,8 +45,8 @@ public class App extends Generator {
 		return request.getProtoFileList().stream()
 					  .map(file -> {
 						  if (request.getFileToGenerateList().contains(file.getName())) {
-							  final Options opts =
-								  Options.from(file.getOptions().getExtension(OptionsProto.fileopt));
+							  final FileOptions opts =
+								  FileOptions.from(file.getOptions().getExtension(OptionsProto.fileopt));
 							  if (opts.shouldGenerate()) {
 								  return Optional.of(
 									  (Supplier<Stream<File>>) () -> handleProtoFile(file, opts));
@@ -65,7 +65,7 @@ public class App extends Generator {
 	}
 
 	private Stream<File> handleProtoFile(final FileDescriptorProto fileDescriptor,
-										 final Options opts
+										 final FileOptions opts
 	) {
 		final String protoPackage = fileDescriptor.getPackage();
 		final String javaPackage = fileDescriptor.getOptions().hasJavaPackage()

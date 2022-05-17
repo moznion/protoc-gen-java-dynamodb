@@ -31,6 +31,18 @@ public final class OptionsProto {
      */
     com.google.protobuf.ByteString
         getJavaDynamodbTableNameBytes();
+
+    /**
+     * <code>string java_dynamodb_entity_class_name = 2;</code>
+     * @return The javaDynamodbEntityClassName.
+     */
+    java.lang.String getJavaDynamodbEntityClassName();
+    /**
+     * <code>string java_dynamodb_entity_class_name = 2;</code>
+     * @return The bytes for javaDynamodbEntityClassName.
+     */
+    com.google.protobuf.ByteString
+        getJavaDynamodbEntityClassNameBytes();
   }
   /**
    * Protobuf type {@code net.moznion.protoc.plugin.dynamodb.FileOptions}
@@ -46,6 +58,7 @@ public final class OptionsProto {
     }
     private FileOptions() {
       javaDynamodbTableName_ = "";
+      javaDynamodbEntityClassName_ = "";
     }
 
     @java.lang.Override
@@ -82,6 +95,12 @@ public final class OptionsProto {
               java.lang.String s = input.readStringRequireUtf8();
 
               javaDynamodbTableName_ = s;
+              break;
+            }
+            case 18: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              javaDynamodbEntityClassName_ = s;
               break;
             }
             default: {
@@ -156,6 +175,44 @@ public final class OptionsProto {
       }
     }
 
+    public static final int JAVA_DYNAMODB_ENTITY_CLASS_NAME_FIELD_NUMBER = 2;
+    private volatile java.lang.Object javaDynamodbEntityClassName_;
+    /**
+     * <code>string java_dynamodb_entity_class_name = 2;</code>
+     * @return The javaDynamodbEntityClassName.
+     */
+    @java.lang.Override
+    public java.lang.String getJavaDynamodbEntityClassName() {
+      java.lang.Object ref = javaDynamodbEntityClassName_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        javaDynamodbEntityClassName_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string java_dynamodb_entity_class_name = 2;</code>
+     * @return The bytes for javaDynamodbEntityClassName.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getJavaDynamodbEntityClassNameBytes() {
+      java.lang.Object ref = javaDynamodbEntityClassName_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        javaDynamodbEntityClassName_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -173,6 +230,9 @@ public final class OptionsProto {
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(javaDynamodbTableName_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, javaDynamodbTableName_);
       }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(javaDynamodbEntityClassName_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, javaDynamodbEntityClassName_);
+      }
       unknownFields.writeTo(output);
     }
 
@@ -184,6 +244,9 @@ public final class OptionsProto {
       size = 0;
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(javaDynamodbTableName_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, javaDynamodbTableName_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(javaDynamodbEntityClassName_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, javaDynamodbEntityClassName_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -202,6 +265,8 @@ public final class OptionsProto {
 
       if (!getJavaDynamodbTableName()
           .equals(other.getJavaDynamodbTableName())) return false;
+      if (!getJavaDynamodbEntityClassName()
+          .equals(other.getJavaDynamodbEntityClassName())) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -215,6 +280,8 @@ public final class OptionsProto {
       hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + JAVA_DYNAMODB_TABLE_NAME_FIELD_NUMBER;
       hash = (53 * hash) + getJavaDynamodbTableName().hashCode();
+      hash = (37 * hash) + JAVA_DYNAMODB_ENTITY_CLASS_NAME_FIELD_NUMBER;
+      hash = (53 * hash) + getJavaDynamodbEntityClassName().hashCode();
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -350,6 +417,8 @@ public final class OptionsProto {
         super.clear();
         javaDynamodbTableName_ = "";
 
+        javaDynamodbEntityClassName_ = "";
+
         return this;
       }
 
@@ -377,6 +446,7 @@ public final class OptionsProto {
       public net.moznion.protoc.plugin.dynamodb.OptionsProto.FileOptions buildPartial() {
         net.moznion.protoc.plugin.dynamodb.OptionsProto.FileOptions result = new net.moznion.protoc.plugin.dynamodb.OptionsProto.FileOptions(this);
         result.javaDynamodbTableName_ = javaDynamodbTableName_;
+        result.javaDynamodbEntityClassName_ = javaDynamodbEntityClassName_;
         onBuilt();
         return result;
       }
@@ -427,6 +497,10 @@ public final class OptionsProto {
         if (other == net.moznion.protoc.plugin.dynamodb.OptionsProto.FileOptions.getDefaultInstance()) return this;
         if (!other.getJavaDynamodbTableName().isEmpty()) {
           javaDynamodbTableName_ = other.javaDynamodbTableName_;
+          onChanged();
+        }
+        if (!other.getJavaDynamodbEntityClassName().isEmpty()) {
+          javaDynamodbEntityClassName_ = other.javaDynamodbEntityClassName_;
           onChanged();
         }
         this.mergeUnknownFields(other.unknownFields);
@@ -530,6 +604,82 @@ public final class OptionsProto {
   checkByteStringIsUtf8(value);
         
         javaDynamodbTableName_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object javaDynamodbEntityClassName_ = "";
+      /**
+       * <code>string java_dynamodb_entity_class_name = 2;</code>
+       * @return The javaDynamodbEntityClassName.
+       */
+      public java.lang.String getJavaDynamodbEntityClassName() {
+        java.lang.Object ref = javaDynamodbEntityClassName_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          javaDynamodbEntityClassName_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string java_dynamodb_entity_class_name = 2;</code>
+       * @return The bytes for javaDynamodbEntityClassName.
+       */
+      public com.google.protobuf.ByteString
+          getJavaDynamodbEntityClassNameBytes() {
+        java.lang.Object ref = javaDynamodbEntityClassName_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          javaDynamodbEntityClassName_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string java_dynamodb_entity_class_name = 2;</code>
+       * @param value The javaDynamodbEntityClassName to set.
+       * @return This builder for chaining.
+       */
+      public Builder setJavaDynamodbEntityClassName(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        javaDynamodbEntityClassName_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string java_dynamodb_entity_class_name = 2;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearJavaDynamodbEntityClassName() {
+        
+        javaDynamodbEntityClassName_ = getDefaultInstance().getJavaDynamodbEntityClassName();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string java_dynamodb_entity_class_name = 2;</code>
+       * @param value The bytes for javaDynamodbEntityClassName to set.
+       * @return This builder for chaining.
+       */
+      public Builder setJavaDynamodbEntityClassNameBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        javaDynamodbEntityClassName_ = value;
         onChanged();
         return this;
       }
@@ -1857,20 +2007,21 @@ public final class OptionsProto {
     java.lang.String[] descriptorData = {
       "\n\024protos/options.proto\022\"net.moznion.prot" +
       "oc.plugin.dynamodb\032 google/protobuf/desc" +
-      "riptor.proto\"/\n\013FileOptions\022 \n\030java_dyna" +
-      "modb_table_name\030\001 \001(\t\"\337\001\n\014FieldOptions\022\036" +
-      "\n\026java_dynamodb_hash_key\030\001 \001(\010\022\037\n\027java_d" +
-      "ynamodb_range_key\030\002 \001(\010\022\034\n\024java_dynamodb" +
-      "_ignore\030\003 \001(\010\022\033\n\023java_dynamodb_alias\030\004 \001" +
-      "(\t\022(\n java_dynamodb_hash_key_gsi_names\030\005" +
-      " \003(\t\022)\n!java_dynamodb_range_key_gsi_name" +
-      "s\030\006 \003(\t:`\n\007fileopt\022\034.google.protobuf.Fil" +
-      "eOptions\030\320\206\003 \001(\0132/.net.moznion.protoc.pl" +
-      "ugin.dynamodb.FileOptions:c\n\010fieldopt\022\035." +
-      "google.protobuf.FieldOptions\030\321\206\003 \001(\01320.n" +
-      "et.moznion.protoc.plugin.dynamodb.FieldO" +
-      "ptionsB2\n\"net.moznion.protoc.plugin.dyna" +
-      "modbB\014OptionsProtob\006proto3"
+      "riptor.proto\"X\n\013FileOptions\022 \n\030java_dyna" +
+      "modb_table_name\030\001 \001(\t\022\'\n\037java_dynamodb_e" +
+      "ntity_class_name\030\002 \001(\t\"\337\001\n\014FieldOptions\022" +
+      "\036\n\026java_dynamodb_hash_key\030\001 \001(\010\022\037\n\027java_" +
+      "dynamodb_range_key\030\002 \001(\010\022\034\n\024java_dynamod" +
+      "b_ignore\030\003 \001(\010\022\033\n\023java_dynamodb_alias\030\004 " +
+      "\001(\t\022(\n java_dynamodb_hash_key_gsi_names\030" +
+      "\005 \003(\t\022)\n!java_dynamodb_range_key_gsi_nam" +
+      "es\030\006 \003(\t:`\n\007fileopt\022\034.google.protobuf.Fi" +
+      "leOptions\030\320\206\003 \001(\0132/.net.moznion.protoc.p" +
+      "lugin.dynamodb.FileOptions:c\n\010fieldopt\022\035" +
+      ".google.protobuf.FieldOptions\030\321\206\003 \001(\01320." +
+      "net.moznion.protoc.plugin.dynamodb.Field" +
+      "OptionsB2\n\"net.moznion.protoc.plugin.dyn" +
+      "amodbB\014OptionsProtob\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -1882,7 +2033,7 @@ public final class OptionsProto {
     internal_static_net_moznion_protoc_plugin_dynamodb_FileOptions_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_net_moznion_protoc_plugin_dynamodb_FileOptions_descriptor,
-        new java.lang.String[] { "JavaDynamodbTableName", });
+        new java.lang.String[] { "JavaDynamodbTableName", "JavaDynamodbEntityClassName", });
     internal_static_net_moznion_protoc_plugin_dynamodb_FieldOptions_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_net_moznion_protoc_plugin_dynamodb_FieldOptions_fieldAccessorTable = new

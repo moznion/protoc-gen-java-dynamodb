@@ -6,11 +6,12 @@ import lombok.Value;
 
 @Value
 @RequiredArgsConstructor(access = AccessLevel.PRIVATE)
-class Options {
+class FileOptions {
 	String tableName;
+	String dynamodbEntityClassName;
 
-	static Options from(OptionsProto.FileOptions opts) {
-		return new Options(opts.getJavaDynamodbTableName());
+	static FileOptions from(OptionsProto.FileOptions opts) {
+		return new FileOptions(opts.getJavaDynamodbTableName(), opts.getJavaDynamodbEntityClassName());
 	}
 
 	boolean shouldGenerate() {

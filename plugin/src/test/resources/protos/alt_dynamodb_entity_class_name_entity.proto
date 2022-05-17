@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+package net.moznion.protoc.plugin.dynamodb.generated;
+
+import "dependencies/options.proto";
+
+option java_package = "net.moznion.protoc.plugin.dynamodb.generated";
+
+option (net.moznion.protoc.plugin.dynamodb.fileopt).java_dynamodb_table_name = "alt-dynamodb-entity-class-name-table";
+option (net.moznion.protoc.plugin.dynamodb.fileopt).java_dynamodb_entity_class_name = "DYNAMODB";
+
+message AltDynamodbEntityClassNameEntity {
+  string hash_key_str = 1 [(net.moznion.protoc.plugin.dynamodb.fieldopt).java_dynamodb_hash_key = true];
+}
