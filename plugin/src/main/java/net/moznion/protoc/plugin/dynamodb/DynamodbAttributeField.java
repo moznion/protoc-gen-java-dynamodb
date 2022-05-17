@@ -3,9 +3,11 @@ package net.moznion.protoc.plugin.dynamodb;
 import com.google.common.collect.ImmutableMap;
 import com.google.protobuf.DescriptorProtos;
 import com.google.protobuf.Descriptors;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
+import java.util.Set;
 import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
 import lombok.Value;
@@ -30,8 +32,8 @@ class DynamodbAttributeField {
 	String aliasName;
 	boolean isHashKey;
 	boolean isRangeKey;
-	List<String> gsiHashKeyIndices;
-	List<String> gsiRangeKeyIndices;
+	Set<String> gsiHashKeyIndices;
+	Set<String> gsiRangeKeyIndices;
 	DescriptorProtos.FieldDescriptorProto descriptor;
 
 	static DynamodbAttributeField from(final DescriptorProtos.FieldDescriptorProto fieldDescriptor) {
@@ -44,8 +46,8 @@ class DynamodbAttributeField {
 			fieldOpt.getJavaDynamodbAlias(),
 			fieldOpt.getJavaDynamodbHashKey(),
 			fieldOpt.getJavaDynamodbRangeKey(),
-			fieldOpt.getJavaDynamodbHashKeyGsiNamesList(),
-			fieldOpt.getJavaDynamodbRangeKeyGsiNamesList(),
+			new HashSet<>(fieldOpt.getJavaDynamodbHashKeyGsiNamesList()),
+			new HashSet<>(fieldOpt.getJavaDynamodbRangeKeyGsiNamesList()),
 			fieldDescriptor
 		);
 	}
@@ -53,10 +55,13 @@ class DynamodbAttributeField {
 	DynamodbAttributeField validate() throws IllegalArgumentException {
 		if (isHashKey && isRangeKey) {
 			throw new IllegalArgumentException(
-				"hash-key specifier and range-key specifier is exclusive");
+				"hash-key specifier and range-key specifier is exclusive on a field");
 		}
 
-		// TODO gsi config overwrap
+		if (gsiHashKeyIndices.stream().anyMatch(gsiRangeKeyIndices::contains)) {
+			throw new IllegalArgumentException(
+				"GSI hash-key and GSI range-key specifier is exclusive on a field");
+		}
 
 		return this;
 	}
