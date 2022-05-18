@@ -9,7 +9,7 @@ repositories {
     mavenCentral()
 }
 
-def _version = '0.0.4-SNAPSHOT'
+def _version = '0.0.4'
 version = _version
 
 dependencies {
