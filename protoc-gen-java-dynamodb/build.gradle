@@ -39,6 +39,16 @@ jar {
     }
 }
 
+distributions {
+    main {
+        contents {
+            from ('..') {
+                include 'protos/*'
+            }
+        }
+    }
+}
+
 distZip {
     into("${archiveBaseName}-${archiveVersion}/bin") {
         fileMode = 0755
