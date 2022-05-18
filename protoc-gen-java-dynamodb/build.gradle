@@ -100,9 +100,9 @@ publishing {
                     }
                 }
                 scm {
-                    connection = "scm:git:git://github.com/moznion/wireguard-keytool-java.git"
-                    developerConnection = "scm:git:ssh://github.com/moznion/wireguard-keytool-java.git"
-                    url = "https://github.com/moznion/wireguard-keytool-java"
+                    connection = "scm:git:git://github.com/moznion/protoc-gen-java-dynamodb.git"
+                    developerConnection = "scm:git:ssh://github.com/moznion/protoc-gen-java-dynamodb.git"
+                    url = "https://github.com/moznion/protoc-gen-java-dynamodb"
                 }
             }
         }
