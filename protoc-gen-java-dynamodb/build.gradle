@@ -1,5 +1,7 @@
 plugins {
     id 'application'
+    id 'maven-publish'
+    id 'signing'
     id "com.diffplug.spotless" version "6.6.1"
 }
 
@@ -7,10 +9,8 @@ repositories {
     mavenCentral()
 }
 
-version = '0.0.3-SNAPSHOT'
-
-sourceCompatibility = 11
-targetCompatibility = 11
+def _version = '0.0.3-SNAPSHOT'
+version = _version
 
 dependencies {
     implementation 'com.google.protobuf:protobuf-java:3.20.1'
@@ -27,6 +27,13 @@ dependencies {
 
 application {
     mainClass = 'net.moznion.protoc.plugin.dynamodb.App'
+}
+
+java {
+    sourceCompatibility = 11
+    targetCompatibility = 11
+    withJavadocJar()
+    withSourcesJar()
 }
 
 tasks.named('test') {
@@ -66,6 +73,55 @@ spotless {
     removeUnusedImports()
     target "**/*.java"
   }
+}
+
+publishing {
+    publications {
+        maven(MavenPublication) {
+            group = "net.moznion"
+            artifactId = "protoc-gen-java-dynamodb"
+            version = _version
+            from components.java
+            pom {
+                name = "protoc-gen-java-dynamodb"
+                description = "A Protocol Buffers code generator plugin for Java that generates Amazon DynamoDB entity code according to the protoc schema."
+                url = "https://github.com/moznion/protoc-gen-java-dynamodb"
+                licenses {
+                    license {
+                        name = "The 3-Clause BSD License"
+                        url = "https://opensource.org/licenses/BSD-3-Clause"
+                    }
+                }
+                developers {
+                    developer {
+                        id = "moznion"
+                        name = "Taiki Kawakami"
+                        email = "moznion@mail.moznion.net"
+                    }
+                }
+                scm {
+                    connection = "scm:git:git://github.com/moznion/wireguard-keytool-java.git"
+                    developerConnection = "scm:git:ssh://github.com/moznion/wireguard-keytool-java.git"
+                    url = "https://github.com/moznion/wireguard-keytool-java"
+                }
+            }
+        }
+    }
+    repositories {
+        maven {
+            def releasesRepoUrl = "https://oss.sonatype.org/service/local/staging/deploy/maven2"
+            def snapshotsRepoUrl = "https://oss.sonatype.org/content/repositories/snapshots"
+            url = version.endsWith('SNAPSHOT') ? snapshotsRepoUrl : releasesRepoUrl
+            credentials {
+                username = findProperty("sonatypeUsername") ?: ""
+                password = findProperty("sonatypePassword") ?: ""
+            }
+        }
+    }
+}
+
+signing {
+    sign publishing.publications.maven
 }
 
 def devContainerName = 'protoc-gen-java-dynamodb:latest'
