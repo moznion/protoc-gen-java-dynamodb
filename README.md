@@ -1,4 +1,4 @@
-# protoc-gen-java-dynamodb [![Test](https://github.com/moznion/protoc-gen-java-dynamodb/actions/workflows/test.yaml/badge.svg)](https://github.com/moznion/protoc-gen-java-dynamodb/actions/workflows/test.yaml) ![Maven Central](https://img.shields.io/maven-central/v/net.moznion/protoc-gen-java-dynamodb)
+# protoc-gen-java-dynamodb [![Test](https://github.com/moznion/protoc-gen-java-dynamodb/actions/workflows/test.yaml/badge.svg)](https://github.com/moznion/protoc-gen-java-dynamodb/actions/workflows/test.yaml) ![Maven Central](https://search.maven.org/artifact/net.moznion/protoc-gen-java-dynamodb)
 
 A [Protocol Buffers](https://developers.google.com/protocol-buffers) code generator plugin for Java that generates [Amazon DynamoDB](https://aws.amazon.com/dynamodb) entity code according to the protoc schema.
 
