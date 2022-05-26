@@ -9,7 +9,7 @@ syntax = "proto3";
 
 package com.example.dynamodb;
 
-import "protos/options.proto";
+import "path/to/protoc-gen-java-dynamodb/protos/options.proto";
 
 option java_package = "com.example.dynamodb";
 option java_outer_classname = "ExampleEntityProto";
