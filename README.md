@@ -29,7 +29,7 @@ And when it gives this plugin the avobe protobuf schema:
 $ protoc -I . --java_out=./out/src/main/java/ --plugin=protoc-gen-java-dynamodb=./protoc-gen-java-dynamodb/build/scripts/protoc-gen-java-dynamodb --java-dynamodb_out=./out/src/main/java ./example.proto
 ```
 
-Then the plugin generates the following code in `ExampleEntityProto` class:
+Then the plugin generates the following code in `ExampleEntityProto.ExampleEntity` class:
 
 ```java
     // protoc-gen-java-dynamodb plugin generated (((
@@ -115,6 +115,26 @@ final PaginatedQueryList<ExampleEntityProto.ExampleEntity.DynamoDBEntity> result
     );
 final ExampleEntityProto.ExampleEntity retrievedEntry = result.get(0).toExampleEntity(); // <= equal to `entity`
 ```
+
+When you use the generated code of this plugin, it requires installing the library code that is hosted by Maven Central as follows:
+
+#### Maven
+
+```xml
+<dependency>
+  <groupId>net.moznion</groupId>
+  <artifactId>protoc-gen-java-dynamodb</artifactId>
+  <version>0.0.4</version>
+</dependency>
+```
+
+#### Gradle
+
+```gradle
+implementation 'net.moznion:protoc-gen-java-dynamodb:0.0.4'
+```
+
+See also: [![Maven Central](https://img.shields.io/maven-central/v/net.moznion/protoc-gen-java-dynamodb)](https://search.maven.org/artifact/net.moznion/protoc-gen-java-dynamodb)
 
 ## Options
 
