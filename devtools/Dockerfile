@@ -1,4 +1,4 @@
-FROM openjdk:11.0.15-jre-slim-bullseye
+FROM openjdk:11.0.16-jre-slim-bullseye
 
 RUN apt-get update -y && apt-get install --no-install-recommends -y \
         curl \
