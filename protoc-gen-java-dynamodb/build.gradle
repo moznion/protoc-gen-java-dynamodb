@@ -14,7 +14,7 @@ version = _version
 
 dependencies {
     implementation 'com.google.protobuf:protobuf-java:3.20.1'
-    implementation 'com.salesforce.servicelibs:jprotoc:1.2.1'
+    implementation 'com.salesforce.servicelibs:jprotoc:1.2.2'
 
     testImplementation 'org.junit.jupiter:junit-jupiter:5.8.2'
     testImplementation 'com.amazonaws:aws-java-sdk:1.12.220'
