@@ -13,7 +13,7 @@ def _version = '0.0.5-SNAPSHOT'
 version = _version
 
 dependencies {
-    implementation 'com.google.protobuf:protobuf-java:3.20.1'
+    implementation 'com.google.protobuf:protobuf-java:4.28.3'
     implementation 'com.salesforce.servicelibs:jprotoc:1.2.1'
 
     testImplementation 'org.junit.jupiter:junit-jupiter:5.8.2'
